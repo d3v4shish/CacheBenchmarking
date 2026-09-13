@@ -1,0 +1,15 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+prefetch-gcc13-scalar,prefetch_chain,scalar,cache_evicted,basic,1048576,timed_page_fault,2
+prefetch-gcc13-scalar,prefetch_chain,scalar,cache_evicted,branch,32768,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,cache_evicted,branch,33554432,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,basic,16384,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,24576,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,49152,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,65536,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,98304,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,196608,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,294912,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,2097152,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,5242880,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,8388608,timed_page_fault,1
+prefetch-gcc13-scalar,prefetch_chain,scalar,warm,branch,33554432,timed_page_fault,1

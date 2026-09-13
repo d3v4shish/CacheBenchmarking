@@ -1,0 +1,3 @@
+mode=prefetch_chain
+repetitions=8
+minimum_accepted_rows=6

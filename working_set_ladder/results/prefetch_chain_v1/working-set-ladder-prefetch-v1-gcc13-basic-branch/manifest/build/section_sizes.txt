@@ -1,0 +1,34 @@
+/home/d3v/prefetch-chain-build-20260910-gcc13-scalar/working_set_ladder  :
+section               size      addr
+.interp                 28   4195096
+.note.gnu.property      48   4195128
+.note.gnu.build-id      36   4195176
+.note.ABI-tag           32   4195212
+.gnu.hash               96   4195248
+.dynsym               1704   4195344
+.dynstr               2306   4197048
+.gnu.version           142   4199354
+.gnu.version_r         304   4199496
+.rela.dyn              144   4199800
+.rela.plt             1344   4199944
+.init                   27   4202496
+.plt                   912   4202528
+.plt.sec               896   4203440
+.text                34630   4204336
+.fini                   13   4238968
+.rodata               3864   4239360
+.eh_frame_hdr          484   4243224
+.eh_frame             2744   4243712
+.gcc_except_table     1068   4246456
+.init_array             16   4251048
+.fini_array              8   4251064
+.data.rel.ro            40   4251072
+.dynamic               496   4251112
+.got                    16   4251608
+.got.plt               472   4251624
+.data                   16   4252096
+.bss                   608   4252160
+.comment                45         0
+Total                52539
+
+

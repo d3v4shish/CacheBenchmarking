@@ -1,0 +1,8 @@
+metric,value
+raw_rows,375
+migration_rows,0
+basic_cycle_multiplexed_rows,0
+expanded_cycle_multiplexed_rows,15
+expanded_cycle_running_enabled_median,0.497645080368
+fault_rows,60
+total_minor_faults,15540

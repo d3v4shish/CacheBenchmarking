@@ -1,0 +1,12 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-gcc13-scalar,dependent_index_cycle,scalar,cache_evicted,basic,262144,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,cache_evicted,basic,536870912,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,cache_evicted,branch,536870912,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,basic,131072,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,basic,262144,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,basic,2097152,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,branch,196608,timed_page_fault,2
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,branch,294912,timed_page_fault,1
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,branch,1048576,timed_page_fault,2
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,branch,5242880,timed_page_fault,2
+stride16-gcc13-scalar,dependent_index_cycle,scalar,warm,branch,134217728,timed_page_fault,1

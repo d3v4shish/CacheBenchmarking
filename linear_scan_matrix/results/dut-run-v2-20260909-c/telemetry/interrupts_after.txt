@@ -1,0 +1,40 @@
+           CPU0       CPU1       CPU2       CPU3       CPU4       CPU6       CPU7       
+  0:         42          0          0          0          0          0          0  IO-APIC   2-edge      timer
+  1:          0          0          0         62          0          0          0  IO-APIC   1-edge      i8042
+  8:          1          0          0          0          0          0          0  IO-APIC   8-edge      rtc0
+  9:          0      19852          0          0          0          0          0  IO-APIC   9-fasteoi   acpi
+ 12:          0          0       3404          0          0          0          0  IO-APIC  12-edge      i8042
+ 16:          0     131242          0          0          0          0          0  IO-APIC  16-fasteoi   ehci_hcd:usb3, ath9k
+ 18:          0          0          9          0          0          0          0  IO-APIC  18-fasteoi   i801_smbus
+ 19:          0          0    3045271          0          0          0          0  IO-APIC  19-fasteoi   ata_piix
+ 23:          0          0          0         33          0          0          0  IO-APIC  23-fasteoi   ehci_hcd:usb1
+ 24:          0          0          0          0          0          0          0 PCI-MSI-0000:00:01.0   0-edge      PCIe PME, PCIe bwctrl
+ 25:          0          0          0          1          0          0          0 PCI-MSI-0000:00:01.1   0-edge      PCIe PME, PCIe bwctrl
+ 26:          1          0          0          0          0          0          0 PCI-MSI-0000:00:1c.0   0-edge      PCIe PME, PCIe bwctrl
+ 27:          0          1          0          0          0          0          0 PCI-MSI-0000:00:1c.4   0-edge      PCIe PME, PCIe bwctrl
+ 28:    3315514          0          0          0          0          0          0 PCI-MSI-0000:00:14.0   0-edge      xhci_hcd
+ 29:          0          0          0          0          0          0          0 PCI-MSIX-0000:08:00.0   0-edge      enp8s0
+ 30:          0         25          0          0          0          0          0 PCI-MSI-0000:00:16.0   0-edge      mei_me
+ 31:          0          0          0      75553          0          0          0 PCI-MSI-0000:00:02.0   0-edge      i915
+ 32:        250          0          0          0          0          0          0 PCI-MSI-0000:00:03.0   0-edge      snd_hda_intel:card0
+ 33:          0        802          0          0          0          0          0 PCI-MSI-0000:00:1b.0   0-edge      snd_hda_intel:card1
+NMI:       2274       1796       1876       1729      38857          0          0   Non-maskable interrupts
+LOC:  225064674   37146029   40662876   36640586     234334       1459       1681   Local timer interrupts
+SPU:          0          0          0          0          0          0          0   Spurious interrupts
+PMI:       2274       1796       1876       1729      38857          0          0   Performance monitoring interrupts
+IWI:       7386       6214       6681      21444      86273        599        836   IRQ work interrupts
+RTR:          0          0          0          0          0          0          0   APIC ICR read retries
+RES:      36799      22945      32575      23081         20          3          2   Rescheduling interrupts
+CAL:    1484114    1903306    1620131    1503170      71015      24769      24763   Function call interrupts
+TLB:     483087     477083     483487     475437          0          0          0   TLB shootdowns
+TRM:          0          0          0          0          0          0          0   Thermal event interrupts
+THR:          0          0          0          0          0          0          0   Threshold APIC interrupts
+DFR:          0          0          0          0          0          0          0   Deferred Error APIC interrupts
+MCE:          0          0          0          0          0          0          0   Machine check exceptions
+MCP:        642        643        643        643        643        643        643   Machine check polls
+ERR:          0
+MIS:          0
+PIN:          0          0          0          0          0          0          0   Posted-interrupt notification event
+NPI:          0          0          0          0          0          0          0   Nested posted-interrupt event
+PIW:          0          0          0          0          0          0          0   Posted-interrupt wakeup event
+VPMI:          0          0          0          0          0          0          0  Perf Guest Mediated PMI

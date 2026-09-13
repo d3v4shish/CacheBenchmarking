@@ -1,0 +1,95 @@
+000000000040dde8 d _DYNAMIC
+000000000040dfe8 d _GLOBAL_OFFSET_TABLE_
+000000000040b000 R _IO_stdin_used
+0000000000407590 t (anonymous namespace)::PerfEvents::close_all()
+0000000000407f10 t (anonymous namespace)::current_cpu()
+0000000000402869 t (anonymous namespace)::current_cpu() [clone .cold]
+0000000000407820 t (anonymous namespace)::ensure_parent(std::filesystem::__cxx11::path const&)
+0000000000402730 t (anonymous namespace)::ensure_parent(std::filesystem::__cxx11::path const&) [clone .cold]
+00000000004091c0 t (anonymous namespace)::parse_options(int, char**)
+0000000000402d62 t (anonymous namespace)::parse_options(int, char**) [clone .cold]
+0000000000407890 t (anonymous namespace)::LadderWorkload::run_one_pass()
+0000000000402812 t (anonymous namespace)::LadderWorkload::run_one_pass() [clone .cold]
+00000000004090d0 t (anonymous namespace)::LadderWorkload::~LadderWorkload()
+00000000004090d0 t (anonymous namespace)::LadderWorkload::~LadderWorkload()
+0000000000407eb0 t (anonymous namespace)::monotonic_raw_ns()
+0000000000402845 t (anonymous namespace)::monotonic_raw_ns() [clone .cold]
+0000000000407500 t void (anonymous namespace)::deterministic_shuffle<unsigned int>(std::vector<unsigned int, std::allocator<unsigned int> >&, unsigned long) [clone .isra.0]
+0000000000402758 t (anonymous namespace)::fail(std::basic_string_view<char, std::char_traits<char> >)
+0000000000409120 t (anonymous namespace)::Mapping::Mapping(unsigned long)
+0000000000409120 t (anonymous namespace)::Mapping::Mapping(unsigned long)
+0000000000402c7e t (anonymous namespace)::Mapping::Mapping(unsigned long) [clone .cold]
+0000000000409080 t (anonymous namespace)::Options::~Options()
+0000000000409080 t (anonymous namespace)::Options::~Options()
+00000000004086d0 t (anonymous namespace)::parse_int(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >)
+000000000040296f t (anonymous namespace)::parse_int(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >) [clone .cold]
+0000000000408a60 t (anonymous namespace)::parse_u64(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >)
+0000000000402ad5 t (anonymous namespace)::parse_u64(std::basic_string_view<char, std::char_traits<char> >, std::basic_string_view<char, std::char_traits<char> >) [clone .cold]
+00000000004080d0 t (anonymous namespace)::PerfEvents::stop_and_read() const
+00000000004028ec t (anonymous namespace)::PerfEvents::stop_and_read() const [clone .cold]
+0000000000407e50 t (anonymous namespace)::PerfEvents::start() const
+0000000000402836 t (anonymous namespace)::PerfEvents::start() const [clone .cold]
+000000000040aa40 W std::basic_string_view<char, std::char_traits<char> >::compare(std::basic_string_view<char, std::char_traits<char> >) const
+0000000000409da0 W std::filesystem::__cxx11::path::~path()
+0000000000409da0 W std::filesystem::__cxx11::path::~path()
+0000000000408de0 t std::enable_if<__is_path_src<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::filesystem::__cxx11::path>::type& std::filesystem::__cxx11::path::operator=<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .isra.0]
+0000000000402c3c t std::enable_if<__is_path_src<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::filesystem::__cxx11::path>::type& std::filesystem::__cxx11::path::operator=<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .isra.0] [clone .cold]
+00000000004074e0 t std::_Optional_payload_base<(anonymous namespace)::Mapping>::_M_reset() [clone .part.0]
+0000000000407690 t std::vector<(anonymous namespace)::CounterRead, std::allocator<(anonymous namespace)::CounterRead> >::~vector()
+0000000000407690 t std::vector<(anonymous namespace)::CounterRead, std::allocator<(anonymous namespace)::CounterRead> >::~vector()
+0000000000407f70 t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::vector(std::initializer_list<(anonymous namespace)::EventSpec>, std::allocator<(anonymous namespace)::EventSpec> const&) [clone .isra.0]
+000000000040288e t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::vector(std::initializer_list<(anonymous namespace)::EventSpec>, std::allocator<(anonymous namespace)::EventSpec> const&) [clone .isra.0] [clone .cold]
+0000000000407620 t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::~vector()
+0000000000407620 t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::~vector()
+000000000040a6c0 W std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > >::~vector()
+000000000040a6c0 W std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > >::~vector()
+000000000040a600 W std::vector<unsigned int, std::allocator<unsigned int> >::vector(unsigned long, std::allocator<unsigned int> const&)
+000000000040a600 W std::vector<unsigned int, std::allocator<unsigned int> >::vector(unsigned long, std::allocator<unsigned int> const&)
+000000000040a5d0 W std::vector<unsigned int, std::allocator<unsigned int> >::~vector()
+000000000040a5d0 W std::vector<unsigned int, std::allocator<unsigned int> >::~vector()
+000000000040a5a0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose()
+000000000040aaa0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*)
+000000000040aca0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*, unsigned long)
+000000000040a740 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::insert(unsigned long, char const*)
+0000000000409e80 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000409f90 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+0000000000407700 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [clone .isra.0]
+0000000000409f90 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+0000000000407790 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, unsigned long, std::allocator<char> const&) [clone .constprop.0]
+0000000000409190 t std::enable_if<is_constructible_v<(anonymous namespace)::Mapping, unsigned long const&>, (anonymous namespace)::Mapping&>::type std::optional<(anonymous namespace)::Mapping>::emplace<unsigned long const&>(unsigned long const&) [clone .isra.0]
+0000000000409c50 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::__str_concat<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::allocator_type const&) [clone .isra.0]
+0000000000402fbd t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::__str_concat<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::value_type const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::size_type, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::allocator_type const&) [clone .isra.0] [clone .cold]
+000000000040e320 B std::cerr@GLIBCXX_3.4
+000000000040e200 B std::cout@GLIBCXX_3.4
+0000000000409e20 W bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
+0000000000409de0 W bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+0000000000409d70 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .isra.0]
+000000000040a060 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+000000000040ddd0 V typeinfo for std::runtime_error@GLIBCXX_3.4
+000000000040ddc0 V typeinfo for std::exception@GLIBCXX_3.4
+000000000040cbb4 r __FRAME_END__
+000000000040bf18 r __GNU_EH_FRAME_HDR
+000000000040e1d0 D __TMC_END__
+000000000040038c r __abi_tag
+000000000040e200 B __bss_start
+000000000040e440 B __cpu_features2
+0000000000406310 T __cpu_indicator_init
+000000000040e450 B __cpu_model
+000000000040e1c0 D __data_start
+00000000004074a0 t __do_global_dtors_aux
+000000000040ddb8 d __do_global_dtors_aux_fini_array_entry
+000000000040e1c8 D __dso_handle
+000000000040ddb0 d __frame_dummy_init_array_entry
+0000000000407420 T _dl_relocate_static_pie
+000000000040e1d0 D _edata
+000000000040e460 B _end
+000000000040ae78 T _fini
+0000000000402000 T _init
+00000000004073f0 T _start
+000000000040e430 b completed.0
+000000000040e1c0 W data_start
+0000000000407430 t deregister_tm_clones
+00000000004074d0 t frame_dummy
+00000000004039e0 T main
+0000000000402fd0 t main.cold
+0000000000407460 t register_tm_clones

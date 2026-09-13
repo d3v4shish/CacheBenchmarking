@@ -1,0 +1,7 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-clang18-scalar,stride16_scan,scalar,cache_evicted,branch,33554432,timed_page_fault,1
+stride16-clang18-scalar,stride16_scan,scalar,warm,basic,36864,timed_page_fault,1
+stride16-clang18-scalar,stride16_scan,scalar,warm,basic,4194304,timed_page_fault,1
+stride16-clang18-scalar,stride16_scan,scalar,warm,branch,98304,timed_page_fault,1
+stride16-clang18-scalar,stride16_scan,scalar,warm,branch,524288,timed_page_fault,1
+stride16-clang18-scalar,stride16_scan,scalar,warm,branch,8388608,timed_page_fault,1

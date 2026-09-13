@@ -1,0 +1,1 @@
+g++-13 -std=c++20 -Wall -Wextra -Wpedantic -Werror -O3 -march=haswell -mtune=haswell -fno-tree-vectorize -fno-tree-slp-vectorize -fno-PIE -no-pie -o /home/d3v/random-access-gcc13-scalar-build-20260909/working_set_ladder /home/d3v/working-set-ladder-random-src-20260909/src/working_set_ladder.cpp 

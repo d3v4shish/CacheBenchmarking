@@ -1,0 +1,2 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-clang18-auto,stride16_scan,auto,warm,branch,536870912,timed_page_fault,1

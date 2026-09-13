@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+# Retain a compact, reproducible C/C++/Rust/Go stride-16 comparison.  Unlike
+# the broad v2 matrix, this script has exactly one loop shape and seven
+# capacity landmarks so every article row has executed source beside it.
+set -Eeuo pipefail
+
+if [[ $# != 1 || $1 != /home/d3v/stride16-language-run-* || -e $1 ]]; then
+  echo "usage: $0 /home/d3v/stride16-language-run-UNIQUE" >&2
+  exit 64
+fi
+
+run_root=$1
+root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+cpu=4
+sibling=5
+repetitions=15
+target_operations=33554432 # minimum useful loads per sample, after initialization
+seed=${STRIDE16_LANGUAGE_SEED:-20260909}
+cases=$(mktemp)
+trap 'rm -f "$cases"' EXIT
+
+# A result is not accepted unless it ran on the same fixed-frequency Haswell
+# configuration as the article's existing stride-16 capacity matrix.
+[[ $(cat /sys/devices/system/cpu/cpu$cpu/cpufreq/scaling_governor) == performance ]] || { echo "governor is not performance" >&2; exit 69; }
+[[ $(cat /sys/devices/system/cpu/cpu$cpu/cpufreq/scaling_min_freq) == $(cat /sys/devices/system/cpu/cpu$cpu/cpufreq/scaling_max_freq) ]] || { echo "frequency is not locked" >&2; exit 69; }
+[[ $(cat /sys/devices/system/cpu/intel_pstate/no_turbo) == 1 ]] || { echo "turbo is enabled" >&2; exit 69; }
+[[ $(cat /proc/sys/kernel/perf_event_paranoid) -le 0 ]] || { echo "PMU access is restricted" >&2; exit 69; }
+grep -q 'model.*: 60' /proc/cpuinfo || { echo "not the Haswell model-60 DUT" >&2; exit 69; }
+[[ $(cat /sys/devices/system/cpu/cpu$sibling/online) == 0 ]] || { echo "SMT sibling CPU $sibling must be offline" >&2; exit 69; }
+
+mkdir -p "$run_root"/{bin,raw,manifest}
+{
+  date --iso-8601=seconds; uname -a; lscpu; lscpu -C
+  grep -H . /sys/devices/system/cpu/cpu$cpu/cpufreq/scaling_{governor,cur_freq,min_freq,max_freq}
+  grep -H . /sys/devices/system/cpu/intel_pstate/{status,no_turbo}
+  cat /proc/sys/kernel/perf_event_paranoid
+  gcc --version; g++ --version; rustc --version; go version; perf --version
+} > "$run_root/manifest/pre_run_machine.txt" 2>&1
+
+make -C "$root" BUILD_DIR="$run_root/bin" stride16_language
+for binary in stride16_c stride16_cpp stride16_rust stride16_go; do
+  objdump -d -Mintel --no-show-raw-insn "$run_root/bin/$binary" > "$run_root/manifest/$binary.disassembly.txt"
+done
+{
+  sha256sum "$root"/src/stride16_c.c "$root"/src/stride16_cpp.cpp \
+    "$root"/src/stride16_rust.rs "$root"/src/stride16_go.go \
+    "$root"/src/pmu_scope.c "$root"/src/pmu_scope.h "$root"/Makefile
+  find "$run_root/bin" -maxdepth 1 -type f -print0 | sort -z | xargs -0 sha256sum
+} > "$run_root/manifest/source_binary_sha256.txt"
+
+printf 'sample_id,round,language,footprint_bytes,passes,operations,elapsed_ns,checksum,expected_checksum,pmu_cycles,pmu_instructions,pmu_ref_cycles,pmu_time_enabled,pmu_time_running,pmu_available\n' > "$run_root/raw/samples.csv"
+printf 'round,sample_id,language,footprint_bytes,passes,shuffle_key\n' > "$run_root/raw/run_order.csv"
+
+# These bracket L1, L2, L3, and DRAM-sized resident working sets. Each one is
+# a multiple of 64 so the operation count is exactly footprint / cache-line.
+for footprint in 32768 36864 262144 1048576 6291456 8388608 536870912; do
+  lines=$((footprint / 64))
+  passes=$(((target_operations + lines - 1) / lines))
+  for language in c cpp rust go; do
+    printf '%s,%s,%s\n' "$language" "$footprint" "$passes" >> "$cases"
+  done
+done
+[[ $(wc -l < "$cases") == 28 ]] || { echo "wrong case count" >&2; exit 65; }
+
+# Keep the order reproducible yet avoid a language or footprint always running
+# cold first. The key is stored with every retained sample.
+shuffle_cases() {
+  local round=$1
+  awk -F, -v seed="$seed" -v round="$round" '
+    BEGIN { state=(seed + round * 104729) % 2147483647 }
+    { state=(state * 48271) % 2147483647; printf "%010d,%s\n", state, $0 }
+  ' "$cases" | sort -t, -k1,1n
+}
+
+for round in $(seq 1 "$repetitions"); do
+  ordinal=0
+  while IFS=, read -r shuffle_key language footprint passes; do
+    ordinal=$((ordinal + 1))
+    sample_id=$(printf 'r%02d-o%02d-%s-%s' "$round" "$ordinal" "$language" "$footprint")
+    printf '%s,%s,%s,%s,%s,%s\n' "$round" "$sample_id" "$language" "$footprint" "$passes" "$shuffle_key" >> "$run_root/raw/run_order.csv"
+    output=$(taskset --cpu-list "$cpu" "$run_root/bin/stride16_$language" "$footprint" "$passes")
+    declare -A field=()
+    IFS=, read -ra terms <<< "$output"
+    for term in "${terms[@]}"; do field[${term%%=*}]=${term#*=}; done
+    for name in bytes passes operations elapsed_ns checksum expected_checksum pmu_cycles pmu_instructions pmu_ref_cycles pmu_time_enabled pmu_time_running pmu_available; do
+      [[ -n ${field[$name]:-} ]] || { echo "missing $name from $sample_id" >&2; exit 65; }
+    done
+    [[ ${field[bytes]} == "$footprint" && ${field[passes]} == "$passes" ]] || { echo "output contract mismatch: $sample_id" >&2; exit 65; }
+    [[ ${field[checksum]} == "${field[expected_checksum]}" ]] || { echo "checksum mismatch: $sample_id" >&2; exit 65; }
+    [[ ${field[pmu_available]} == 1 || ${field[pmu_available]} == true ]] || { echo "PMU unavailable: $sample_id" >&2; exit 65; }
+    [[ ${field[pmu_time_enabled]} == "${field[pmu_time_running]}" && ${field[pmu_time_enabled]} != 0 ]] || { echo "multiplexed PMU group: $sample_id" >&2; exit 65; }
+    printf '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n' "$sample_id" "$round" "$language" "$footprint" "$passes" "${field[operations]}" "${field[elapsed_ns]}" "${field[checksum]}" "${field[expected_checksum]}" "${field[pmu_cycles]}" "${field[pmu_instructions]}" "${field[pmu_ref_cycles]}" "${field[pmu_time_enabled]}" "${field[pmu_time_running]}" "${field[pmu_available]}" >> "$run_root/raw/samples.csv"
+  done < <(shuffle_cases "$round")
+done
+
+"$root/scripts/validate_stride16_language_results.sh" "$run_root/raw"
+"$root/scripts/analyze_stride16_language_results.sh" "$run_root/raw"
+grep -H . /sys/devices/system/cpu/cpu$cpu/cpufreq/scaling_{governor,cur_freq,min_freq,max_freq} > "$run_root/manifest/post_run_frequency.txt"
+sha256sum "$run_root/raw"/*.csv "$run_root/manifest"/*.txt > "$run_root/manifest/result_sha256.txt"
+echo "completed $run_root"

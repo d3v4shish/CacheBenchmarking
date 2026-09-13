@@ -1,0 +1,75 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 4K of event 'cycles:u'
+# Event count (approx.): 402100000
+#
+# Children      Self  Command  Shared Object         Symbol                       
+# ........  ........  .......  ....................  .............................
+#
+    99.95%     0.00%  cpp      cpp                   [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+                --2.81%--0xffffffff9f200b90
+
+    99.95%     0.00%  cpp      libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               main
+               |          
+                --2.81%--0xffffffff9f200b90
+
+    99.95%    97.12%  cpp      cpp                   [.] main
+            |          
+            |--97.12%--_start
+            |          __libc_start_main_impl (inlined)
+            |          __libc_start_call_main
+            |          main
+            |          
+             --2.84%--main
+                       |          
+                        --2.81%--0xffffffff9f200b90
+
+    99.95%     0.00%  cpp      libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               main
+               |          
+                --2.81%--0xffffffff9f200b90
+
+     2.84%     2.84%  cpp      [unknown]             [k] 0xffffffff9f200b90
+            |          
+             --2.81%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       main
+                       0xffffffff9f200b90
+
+     0.05%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _start
+     0.05%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_start
+     0.05%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+     0.05%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.05%     0.00%  cpp      ld-linux-x86-64.so.2  [.] dl_main
+     0.02%     0.02%  cpp      ld-linux-x86-64.so.2  [.] _dl_check_map_versions
+     0.02%     0.02%  cpp      libc.so.6             [.] clock_gettime@@GLIBC_2.17
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_relocate_object
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_receive_error
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] elf_dynamic_do_Rela (inlined)
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] elf_machine_rela (inlined)
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] version_check_doit
+     0.02%     0.00%  cpp      cpp                   [.] scan_clock_now_ns
+     0.02%     0.00%  cpp      ld-linux-x86-64.so.2  [.] _dl_check_all_versions
+     0.02%     0.00%  cpp      libc.so.6             [.] __strnlen_ifunc
+     0.02%     0.00%  cpp      libc.so.6             [.] __clock_gettime (inlined)
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

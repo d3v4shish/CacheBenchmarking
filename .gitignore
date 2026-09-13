@@ -1,0 +1,6 @@
+# Reproducible local build output and collected executables.
+linear_scan_matrix/out/
+**/bin/
+
+# Raw profiler recordings are generated diagnostics and exceed GitHub's file-size limit.
+**/diagnostics/profile/*.data

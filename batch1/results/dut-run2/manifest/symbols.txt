@@ -1,0 +1,85 @@
+000000000000038c r __abi_tag
+0000000000010040 B __bss_start
+0000000000010270 b completed.0
+0000000000010000 D __data_start
+0000000000010000 W data_start
+0000000000005510 t deregister_tm_clones
+0000000000005580 t __do_global_dtors_aux
+000000000000fbc8 d __do_global_dtors_aux_fini_array_entry
+0000000000010008 D __dso_handle
+0000000000010018 V DW.ref.__gxx_personality_v0
+0000000000010010 V DW.ref._ZTISt9exception
+000000000000fbe8 d _DYNAMIC
+0000000000010020 D _edata
+00000000000102c8 B _end
+000000000000caec T _fini
+00000000000055c0 t frame_dummy
+000000000000fbc0 d __frame_dummy_init_array_entry
+000000000000e320 r __FRAME_END__
+000000000000fdf8 d _GLOBAL_OFFSET_TABLE_
+000000000000daa0 r __GNU_EH_FRAME_HDR
+0000000000002000 T _init
+000000000000d000 R _IO_stdin_used
+0000000000003f50 T main
+000000000000393b t main.cold
+0000000000005540 t register_tm_clones
+00000000000054e0 T _start
+0000000000010020 D __TMC_END__
+0000000000010280 b guard variable for (anonymous namespace)::evict_caches_best_effort()::buffer
+0000000000009f60 t (anonymous namespace)::run_sample((anonymous namespace)::Options const&, unsigned long (*)(unsigned long))
+0000000000002dfd t (anonymous namespace)::run_sample((anonymous namespace)::Options const&, unsigned long (*)(unsigned long)) [clone .cold]
+0000000000009f10 t (anonymous namespace)::current_cpu()
+0000000000002c15 t (anonymous namespace)::current_cpu() [clone .cold]
+0000000000007950 t (anonymous namespace)::write_event(std::ostream&, (anonymous namespace)::Sample const&, std::basic_string_view<char, std::char_traits<char> >, bool, bool)
+0000000000005a50 t (anonymous namespace)::run_xor_break(unsigned long)
+00000000000055e0 t (anonymous namespace)::run_timer_only(unsigned long)
+0000000000007a80 t (anonymous namespace)::event_specs_for(std::basic_string_view<char, std::char_traits<char> >)
+0000000000002920 t (anonymous namespace)::event_specs_for(std::basic_string_view<char, std::char_traits<char> >) [clone .cold]
+00000000000102a8 b (anonymous namespace)::g_eviction_sink
+0000000000005610 t (anonymous namespace)::run_add_latency(unsigned long)
+0000000000005830 t (anonymous namespace)::run_imul_latency(unsigned long)
+00000000000102b8 b (anonymous namespace)::g_page_probe_size
+0000000000006610 t (anonymous namespace)::run_shift_latency(unsigned long)
+00000000000102c0 b (anonymous namespace)::g_page_probe_bytes
+0000000000006e60 t (anonymous namespace)::run_add_throughput(unsigned long)
+0000000000007570 t (anonymous namespace)::run_xor_throughput(unsigned long)
+00000000000070f0 t (anonymous namespace)::run_imul_throughput(unsigned long)
+00000000000067b0 t (anonymous namespace)::run_add_throughput_1(unsigned long)
+00000000000069d0 t (anonymous namespace)::run_add_throughput_2(unsigned long)
+0000000000006c10 t (anonymous namespace)::run_add_throughput_4(unsigned long)
+0000000000005ff0 t (anonymous namespace)::run_and_zero_control(unsigned long)
+0000000000007770 t (anonymous namespace)::run_page_state_probe(unsigned long)
+0000000000002720 t (anonymous namespace)::run_page_state_probe(unsigned long) [clone .cold]
+0000000000007370 t (anonymous namespace)::run_shift_throughput(unsigned long)
+00000000000102b0 b (anonymous namespace)::g_page_probe_page_size
+0000000000007840 t (anonymous namespace)::evict_caches_best_effort()
+0000000000002773 t (anonymous namespace)::evict_caches_best_effort() [clone .cold]
+0000000000007a40 t (anonymous namespace)::Options::~Options()
+0000000000007a40 t (anonymous namespace)::Options::~Options()
+00000000000055f0 t (anonymous namespace)::run_empty(unsigned long)
+000000000000bb00 W int __gnu_cxx::__stoa<long, int, char, int>(long (*)(char const*, char**, int), char const*, char const*, unsigned long*, int)
+000000000000c8a0 W std::basic_string_view<char, std::char_traits<char> >::compare(std::basic_string_view<char, std::char_traits<char> >) const
+000000000000b9c0 W std::vector<unsigned char, std::allocator<unsigned char> >::~vector()
+000000000000b9c0 W std::vector<unsigned char, std::allocator<unsigned char> >::~vector()
+00000000000028c2 t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::~vector()
+00000000000028c2 t std::vector<(anonymous namespace)::EventSpec, std::allocator<(anonymous namespace)::EventSpec> >::~vector()
+0000000000002806 t std::vector<(anonymous namespace)::OpenEvent, std::allocator<(anonymous namespace)::OpenEvent> >::~vector()
+0000000000002806 t std::vector<(anonymous namespace)::OpenEvent, std::allocator<(anonymous namespace)::OpenEvent> >::~vector()
+0000000000002864 t std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, (anonymous namespace)::PerfRead>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, (anonymous namespace)::PerfRead> > >::~vector()
+0000000000002864 t std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, (anonymous namespace)::PerfRead>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, (anonymous namespace)::PerfRead> > >::~vector()
+000000000000c310 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose()
+000000000000c680 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*)
+000000000000c900 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::append(char const*, unsigned long)
+000000000000c340 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::insert(unsigned long, char const*)
+000000000000b9f0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+000000000000bc10 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+000000000000bce0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, unsigned long, std::allocator<char> const&)
+0000000000002786 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> >(char const*, std::allocator<char> const&) [clone .isra.0]
+000000000000bc10 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+000000000000bce0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(char const*, unsigned long, std::allocator<char> const&)
+0000000000010160 B std::cerr@GLIBCXX_3.4
+0000000000010040 B std::cout@GLIBCXX_3.4
+000000000000bdc0 W std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+0000000000002cf8 t std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .isra.0]
+000000000000fbd0 V typeinfo for std::runtime_error@GLIBCXX_3.4
+0000000000010290 b (anonymous namespace)::evict_caches_best_effort()::buffer

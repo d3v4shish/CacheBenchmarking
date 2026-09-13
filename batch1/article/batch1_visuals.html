@@ -1,0 +1,137 @@
+<!doctype html>
+<!--
+  Batch 1 visual companion — static numbers plus one conceptual animation.
+
+  This file is intentionally self-contained: there is no hidden chart library,
+  remote request, or client-side calculation.  Every displayed measurement was
+  copied from `../data/{group_summary,paired_summary,quality_summary}.csv`,
+  generated from the hash-identified raw DUT CSV by `src/analyze_batch1.cpp`.
+
+  The animated dots are a teaching diagram only.  They show why a dependency
+  chain answers a latency question and independent streams answer a throughput
+  question.  They are not evidence; the numeric SVG panels are the evidence.
+
+  Method sources:
+  https://www.agner.org/optimize/instruction_tables.pdf
+  https://man7.org/linux/man-pages/man2/perf_event_open.2.html
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Batch 1 — Haswell measurement qualification visuals</title>
+  <style>
+    /* Large contrast and real text make the chart readable without animation. */
+    :root { color-scheme: dark; --bg:#10141b; --panel:#18212d; --ink:#edf4ff;
+            --muted:#aab8cb; --blue:#68a7ff; --green:#70d6a0; --amber:#ffd166;
+            --red:#ff7b7b; --line:#3a4a60; }
+    body { margin:0; padding:28px; background:var(--bg); color:var(--ink);
+           font:16px/1.5 system-ui,sans-serif; }
+    main { max-width:1200px; margin:auto; }
+    h1 { margin:0 0 6px; } h2 { margin-top:36px; }
+    .note { color:var(--muted); max-width:1000px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:18px; }
+    figure { margin:0; padding:14px; background:var(--panel); border:1px solid var(--line); }
+    figcaption { font-weight:700; margin:0 0 8px; }
+    svg { width:100%; height:auto; background:#121a24; }
+    .axis { stroke:var(--line); stroke-width:1; } .label { fill:var(--ink); font-size:13px; }
+    .small { fill:var(--muted); font-size:11px; } .bar { fill:var(--blue); }
+    .good { fill:var(--green); } .warn { fill:var(--amber); } .bad { fill:var(--red); }
+    table { width:100%; border-collapse:collapse; } th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; }
+    th { color:var(--muted); } code { color:var(--amber); }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Batch 1 — can this Haswell laptop measure an instruction honestly?</h1>
+  <p class="note">Corrected run: 375 retained rows, CPU 4 before and after every sample, 15 repetitions per configuration. Raw CSV SHA-256: <code>f699ab0e…b08727e</code>. Lower cycles per instruction is better.</p>
+
+  <section class="grid" aria-label="Measured-result charts">
+    <figure>
+      <figcaption>Matched-chain latency, net core cycles per target instruction</figcaption>
+      <!-- Bars use 100 SVG pixels per core cycle.  p05/p95 ranges appear as thin lines. -->
+      <svg viewBox="0 0 520 245" role="img" aria-label="ADD and shift measure about one core cycle. IMUL measures about three core cycles.">
+        <line class="axis" x1="145" y1="205" x2="465" y2="205"/>
+        <text class="small" x="145" y="224">0</text><text class="small" x="240" y="224">1 cycle</text><text class="small" x="440" y="224">3 cycles</text>
+        <text class="label" x="12" y="55">ADD immediate</text><rect class="bar" x="145" y="35" width="99.5" height="28"/><line class="warn" x1="244.5" y1="28" x2="244.5" y2="70"/><text class="label" x="255" y="55">0.995</text>
+        <text class="label" x="12" y="115">Shift immediate</text><rect class="bar" x="145" y="95" width="99.5" height="28"/><line class="warn" x1="244.5" y1="88" x2="244.5" y2="130"/><text class="label" x="255" y="115">0.995</text>
+        <text class="label" x="12" y="175">IMUL immediate</text><rect class="good" x="145" y="155" width="300.2" height="28"/><line class="warn" x1="445.2" y1="148" x2="445.2" y2="190"/><text class="label" x="454" y="175">3.002</text>
+        <text class="small" x="12" y="17">Subtracts the same-round empty loop; 1.536B target instructions in primary rows.</text>
+      </svg>
+    </figure>
+
+    <figure>
+      <figcaption>ADD streams converge at four independent chains</figcaption>
+      <!-- The width/height scale is explicitly labelled: the value is raw steady-state core cycles per ADD. -->
+      <svg viewBox="0 0 520 245" role="img" aria-label="One ADD stream costs about one cycle; two cost one half; four and eight both cost about one quarter.">
+        <line class="axis" x1="55" y1="205" x2="490" y2="205"/>
+        <line class="axis" x1="55" y1="30" x2="55" y2="205"/>
+        <text class="small" x="12" y="38">1.0</text><text class="small" x="12" y="123">0.5</text><text class="small" x="12" y="205">0.0</text>
+        <rect class="bar" x="95" y="34" width="58" height="171"/><text class="label" x="101" y="226">1</text><text class="small" x="92" y="27">1.003</text>
+        <rect class="bar" x="190" y="118" width="58" height="87"/><text class="label" x="196" y="226">2</text><text class="small" x="187" y="111">0.512</text>
+        <rect class="good" x="285" y="161" width="58" height="44"/><text class="label" x="291" y="226">4</text><text class="small" x="282" y="154">0.259</text>
+        <rect class="good" x="380" y="161" width="58" height="44"/><text class="label" x="386" y="226">8</text><text class="small" x="377" y="154">0.259</text>
+        <text class="small" x="165" y="242">independent ADD chains (128 ADDs per generated body)</text>
+      </svg>
+    </figure>
+
+    <figure>
+      <figcaption>PMU scheduling: basic pass is safe; expanded pass is not exact</figcaption>
+      <!-- These are cycle-event running/enabled ratios.  A ratio below 1 means the event was not observing the full interval. -->
+      <svg viewBox="0 0 520 245" role="img" aria-label="The basic PMU profile ran for 100 percent of the enabled time. The expanded profile ran for about 49.8 percent.">
+        <line class="axis" x1="65" y1="205" x2="490" y2="205"/>
+        <rect class="good" x="115" y="35" width="90" height="170"/><text class="label" x="115" y="28">100%</text><text class="label" x="108" y="226">basic</text>
+        <rect class="bad" x="310" y="120" width="90" height="85"/><text class="label" x="310" y="113">49.8%</text><text class="label" x="288" y="226">expanded</text>
+        <text class="small" x="65" y="17">cycle event: time_running / time_enabled; expanded uop/port values are therefore not interpreted.</text>
+      </svg>
+    </figure>
+
+    <figure>
+      <figcaption>Page-state labels were materially different</figcaption>
+      <!-- This table is more honest than a linear bar chart because page-cold is about two orders of magnitude slower. -->
+      <table aria-label="Page state timing and fault table">
+        <thead><tr><th>Prepared state</th><th>Median TSC ticks</th><th>Median minor faults</th></tr></thead>
+        <tbody>
+          <tr><td>Warm</td><td>27,074</td><td>3</td></tr>
+          <tr><td>Cache-evicted</td><td>37,044</td><td>3</td></tr>
+          <tr><td>Page-cold</td><td>2,223,114</td><td>1,027</td></tr>
+        </tbody>
+      </table>
+      <p class="small">One volatile read per 1,024 pages. Page-cold is deliberately a first-touch probe, not a steady-state ALU result.</p>
+    </figure>
+  </section>
+
+  <h2>Conceptual animation: why latency and throughput require different loops</h2>
+  <p class="note">The moving dots below are explanatory only. The measured bars above come from the raw CSV. If animation is disabled, the arrows and labels still describe the construction.</p>
+  <figure>
+    <svg viewBox="0 0 1060 270" role="img" aria-label="Left: one value moves through a serial dependency chain. Right: four independent values proceed in parallel streams.">
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#aab8cb"/></marker>
+      </defs>
+      <!-- Left panel: each instruction consumes the previous output, so the dot cannot pass the next box until the previous one completes. -->
+      <text class="label" x="35" y="34">Latency: one true dependency chain</text>
+      <rect x="40" y="100" width="120" height="55" rx="8" fill="#20334b" stroke="#68a7ff"/><text class="label" x="65" y="132">ADD output</text>
+      <rect x="260" y="100" width="120" height="55" rx="8" fill="#20334b" stroke="#68a7ff"/><text class="label" x="285" y="132">next ADD</text>
+      <rect x="480" y="100" width="120" height="55" rx="8" fill="#20334b" stroke="#68a7ff"/><text class="label" x="505" y="132">next ADD</text>
+      <path d="M160 127 H255 M380 127 H475" stroke="#aab8cb" stroke-width="3" marker-end="url(#arrow)"/>
+      <!-- The repeated animation is deliberately not a measurement scale. -->
+      <circle r="8" fill="#ffd166"><animateMotion dur="2.4s" repeatCount="indefinite" path="M70,127 H530"/></circle>
+      <text class="small" x="40" y="190">Net core cycles ÷ number of dependent target instructions = latency estimate.</text>
+
+      <!-- Right panel: four values have no data arrow between streams, so the CPU may issue them together if resources allow. -->
+      <text class="label" x="685" y="34">Throughput: independent register streams</text>
+      <g stroke="#aab8cb" stroke-width="2" marker-end="url(#arrow)">
+        <path d="M700 85 H1015"/><path d="M700 120 H1015"/><path d="M700 155 H1015"/><path d="M700 190 H1015"/>
+      </g>
+      <g fill="#70d6a0">
+        <circle r="7"><animateMotion dur="1.1s" repeatCount="indefinite" path="M710,85 H1005"/></circle>
+        <circle r="7"><animateMotion dur="1.1s" begin="-.27s" repeatCount="indefinite" path="M710,120 H1005"/></circle>
+        <circle r="7"><animateMotion dur="1.1s" begin="-.54s" repeatCount="indefinite" path="M710,155 H1005"/></circle>
+        <circle r="7"><animateMotion dur="1.1s" begin="-.81s" repeatCount="indefinite" path="M710,190 H1005"/></circle>
+      </g>
+      <text class="small" x="690" y="235">Increase stream count until cycles/target stops improving; then inspect front-end/port evidence in separate safe passes.</text>
+    </svg>
+  </figure>
+</main>
+</body>
+</html>

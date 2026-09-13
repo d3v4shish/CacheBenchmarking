@@ -1,0 +1,1 @@
+g++-13 -std=c++20 -Wall -Wextra -Wpedantic -Werror -O3 -march=haswell -mtune=haswell -fno-tree-vectorize -fno-tree-slp-vectorize -fno-PIE -no-pie -o /home/d3v/prefetch-chain-build-20260910-gcc13-scalar/working_set_ladder /home/d3v/prefetch-chain-src-20260910/src/working_set_ladder.cpp 

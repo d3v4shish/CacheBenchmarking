@@ -1,0 +1,5 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-gcc13-auto,stride16_scan,auto,warm,basic,196608,timed_page_fault,1
+stride16-gcc13-auto,stride16_scan,auto,warm,basic,393216,timed_page_fault,1
+stride16-gcc13-auto,stride16_scan,auto,warm,branch,49152,timed_page_fault,1
+stride16-gcc13-auto,stride16_scan,auto,warm,branch,262144,timed_page_fault,1

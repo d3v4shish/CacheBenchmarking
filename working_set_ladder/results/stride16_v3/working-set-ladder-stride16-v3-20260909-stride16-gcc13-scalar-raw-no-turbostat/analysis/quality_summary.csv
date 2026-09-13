@@ -1,0 +1,3 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-gcc13-scalar,stride16_scan,scalar,cache_evicted,l1_miss,1048576,timed_page_fault,1
+stride16-gcc13-scalar,stride16_scan,scalar,warm,l1_miss,65536,timed_page_fault,1

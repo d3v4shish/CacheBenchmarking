@@ -1,0 +1,4 @@
+only_mode=stride16_scan
+only_implementation=scalar
+repetitions=15
+minimum_duration_ms=250

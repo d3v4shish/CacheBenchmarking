@@ -1,0 +1,4 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+mlp8-gcc13-raw,mlp8_cycle,scalar,warm,l2_miss,262144,timed_page_fault,1
+mlp8-gcc13-raw,mlp8_cycle,scalar,warm,l2_miss,6291456,timed_page_fault,1
+mlp8-gcc13-raw,mlp8_cycle,scalar,warm,l2_miss,536870912,timed_page_fault,1

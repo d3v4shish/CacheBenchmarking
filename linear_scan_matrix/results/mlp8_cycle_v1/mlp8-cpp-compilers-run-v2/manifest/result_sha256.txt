@@ -1,0 +1,12 @@
+07365dbf9e71245c55d0dee1a507ee626e8c809ab42a7a27e3d50f0465577f23  /home/d3v/mlp8-cpp-compilers-run-v2/raw/run_order.csv
+82e4e0a05d710ca268f34cf8f78906b331d22e3cfb9354c306264b599af2f33d  /home/d3v/mlp8-cpp-compilers-run-v2/raw/samples.csv
+b90e4fc65f91eb90928a6951d72b8d2bf58dae1c13aa760be027437e8a8307d8  /home/d3v/mlp8-cpp-compilers-run-v2/raw/summary_mlp8_cpp_compilers.csv
+e69226b2168de6d0c15e855f6d458a5dd5aa257f914f88f688b88ea794d371a3  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/build_commands.txt
+a06a7467bbd790c5c831a8783938ef16c28e10c7322a7d0f2265f098841bc583  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/clang18_auto.disassembly.txt
+2163136a5f30b4692d87a7e3a719278cd4deec8ada3cbe4806d0caf9d0d3854c  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/clang18_scalar.disassembly.txt
+20359d5fdf5640805ea50f84094ef95477f253f7607b735ddde8525b603b534c  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/gcc13_auto.disassembly.txt
+67307ab91d0b06bfbe73d7cff34f2fd524ac37c6a194da07e6973a30c226e87c  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/gcc13_scalar.disassembly.txt
+65d292137b720dcc458fbbcc6d7401365fd8477b8a2d5f1c4e5192ab3b3e9400  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/post_run_frequency.txt
+c2c3c89900bcd013793f92eac1378efe6a66ac9940d52a2922ed6cc2f5d38589  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/pre_run_machine.txt
+5bf80912d78b79fae680bc55a023eaf2d783e93aacd1ef3ae19acc6e61d49ec6  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/run_plan.txt
+e909489227f4a2af7c458e1727e8e690335fa50ac8db5ed38aea7baffbdaca79  /home/d3v/mlp8-cpp-compilers-run-v2/manifest/source_binary_sha256.txt

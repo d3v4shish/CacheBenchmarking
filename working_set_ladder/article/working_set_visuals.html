@@ -1,0 +1,167 @@
+<!doctype html>
+<!--
+  Historical Cache Search Lab working-set medians.
+  This page contains only the 40 retained timing medians recorded in
+  data/legacy_timing.csv. It does not synthesize percentiles, raw samples,
+  performance counters, or a v2 result.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Working-set ladder — recorded Haswell results</title>
+  <style>
+    :root { color-scheme:dark; --bg:#0e131b; --panel:#172230; --ink:#f1f6ff; --muted:#adbdcf; --line:#40546a; --blue:#72b7ff; --green:#6ed7a1; --amber:#ffd166; }
+    * { box-sizing:border-box; } body { margin:0; padding:24px; color:var(--ink); background:var(--bg); font:16px/1.5 system-ui,sans-serif; }
+    main { max-width:1280px; margin:auto; } h1 { margin:0; } h2 { margin:0 0 8px; } .lede,.note { color:var(--muted); max-width:90ch; }
+    .controls,.panel { background:var(--panel); border:1px solid var(--line); padding:16px; margin-top:16px; }
+    .controls,.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:16px; }
+    label { display:grid; gap:5px; color:var(--muted); font-size:.9rem; } select,button { background:#101a25; color:var(--ink); border:1px solid var(--line); border-radius:5px; padding:8px; font:inherit; }
+    button { cursor:pointer; align-self:end; } .chart { width:100%; min-height:340px; background:#111a25; border:1px solid var(--line); } .small { color:var(--muted); font-size:.88rem; }
+    table { border-collapse:collapse; width:100%; font-size:.92rem; } th,td { padding:8px; text-align:left; border-bottom:1px solid var(--line); } th { color:var(--muted); } .bar { height:10px; background:var(--blue); min-width:2px; border-radius:3px; }
+    .architecture { overflow:auto; } .flow { fill:none; stroke:var(--amber); stroke-width:5; stroke-linecap:round; stroke-dasharray:12 10; animation:dash 1.6s linear infinite; } .paused .flow { animation-play-state:paused; }
+    @keyframes dash { to { stroke-dashoffset:-44; } } .chip { fill:#24364b; stroke:#6f9bca; } .shared { fill:#294239; stroke:#6ed7a1; } .dim { fill:#1a2735; stroke:#40546a; }
+    .label { fill:var(--ink); font:14px system-ui,sans-serif; } .muted { fill:var(--muted); font:12px system-ui,sans-serif; } code { color:#ffd166; }
+    @media (prefers-reduced-motion:reduce) { .flow { animation:none; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Working-set ladder: recorded Haswell results</h1>
+  <p class="lede">These are the 40 retained historical timing medians: eight loops, five footprints, five repetitions per value. They are not raw samples or PMU counts. Select a loop to see its size curve, then select a size to compare every loop.</p>
+
+  <section class="controls" aria-label="Historical result controls">
+    <label>Loop <select id="mode"></select></label>
+    <label>Compare all loops at <select id="footprint"></select></label>
+    <button id="motion" type="button">Pause explanatory flow</button>
+  </section>
+  <p id="status" class="note" aria-live="polite">Loading preserved timing medians…</p>
+
+  <section class="grid">
+    <figure class="panel">
+      <figcaption><h2 id="curve-title">Selected loop across footprint</h2><p class="small">Each point is one recorded median in ns/op. No p05-p95 bar is drawn because the historical repetitions were not retained.</p></figcaption>
+      <svg id="curve" class="chart" viewBox="0 0 680 350" role="img" aria-label="Selected loop timing across five footprints"></svg>
+    </figure>
+    <section class="panel">
+      <h2 id="comparison-title">All loops at selected footprint</h2>
+      <p class="small">Bars are scaled only within this selected footprint. Read exact medians in the right column.</p>
+      <table><thead><tr><th>Loop</th><th>Relative time</th><th>ns/op</th></tr></thead><tbody id="comparison"></tbody></table>
+    </section>
+  </section>
+
+  <section class="panel architecture" id="architecture">
+    <h2 id="flow-title">Haswell topology explainer</h2>
+    <p class="small">The selected loop changes the logical request pattern. This is not a literal trace of an undocumented hardware transaction.</p>
+    <svg viewBox="0 0 720 330" role="img" aria-label="Haswell explanatory topology">
+      <rect class="dim" x="20" y="20" width="680" height="286" rx="12"/>
+      <text class="label" x="42" y="48">Recorded i7-4702MQ model: private L1D/L2, shared LLC, then DRAM</text>
+      <rect class="chip" x="55" y="75" width="130" height="102" rx="8"/><text class="label" x="72" y="104">Core 0</text><text class="muted" x="72" y="128">L1D 32 KiB</text><text class="muted" x="72" y="149">L2 256 KiB</text>
+      <rect class="chip" x="210" y="75" width="130" height="102" rx="8"/><text class="label" x="227" y="104">Core 1</text><text class="muted" x="227" y="128">L1D 32 KiB</text><text class="muted" x="227" y="149">L2 256 KiB</text>
+      <rect class="chip" x="365" y="75" width="130" height="102" rx="8"/><text class="label" x="382" y="104">Core 2</text><text class="muted" x="382" y="128">L1D 32 KiB</text><text class="muted" x="382" y="149">L2 256 KiB</text>
+      <rect class="chip" x="520" y="75" width="130" height="102" rx="8"/><text class="label" x="537" y="104">Core 3</text><text class="muted" x="537" y="128">L1D 32 KiB</text><text class="muted" x="537" y="149">L2 256 KiB</text>
+      <rect class="shared" x="100" y="207" width="520" height="42" rx="8"/><text class="label" x="292" y="234">Shared LLC — 6 MiB</text>
+      <rect class="dim" x="262" y="268" width="196" height="24" rx="5"/><text class="muted" x="308" y="285">memory controller → DRAM</text>
+      <path id="flow" class="flow" d="M430 176 V207 H362 V268"/>
+    </svg>
+    <p id="flow-detail" class="small"></p>
+  </section>
+
+  <section class="panel">
+    <h2>Evidence boundary</h2>
+    <p class="small">Source: the timing medians published in the local Cache Search Lab article. The historical raw sample files, per-variant perf output, binary, and original benchmark source are not available here. The downloadable <a href="data/legacy_timing.csv">legacy_timing.csv</a> is the complete preserved data used by this page. This is generated local article data, not a live benchmark. No remote chart library, telemetry endpoint, or client-side benchmark calculation is used.</p>
+  </section>
+</main>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const order = ["linear_scan", "stride16_scan", "random_access", "arena_pointer_chase", "dependent_index_cycle", "prefetch_chain", "mlp8_cycle", "tlb_page_walk"];
+  const explanation = {
+    linear_scan: ["Linear scan", "Adjacent 32-bit words reuse a fetched 64-byte line; the arrow represents a stream with high useful-byte density.", "M430 176 V207 H362 V268"],
+    stride16_scan: ["Stride-16 scan", "The loop samples one word per 64-byte line. The route is similar to a stream, but most of each line is unused.", "M430 176 V207 H362 V268"],
+    random_access: ["Random direct read", "Addresses are shuffled but independent; later loads may overlap even though locality is poor.", "M430 176 V207 H362 V268"],
+    arena_pointer_chase: ["Random pointer node", "The current node reveals the next node. Each logical arrow represents a dependent random cache-line request.", "M420 176 V207 H352 V268 M440 176 V207 H372 V268"],
+    dependent_index_cycle: ["Dependent index cycle", "The index loaded now names the next load. The repeated path represents waiting for each load-to-use dependency.", "M430 176 V207 H362 V268 M430 176 V207 H362 V268"],
+    prefetch_chain: ["Pointer cycle plus prefetch", "The next address is only known after the current node arrives. The second path is a prefetch request, which may be useful, late, or harmful.", "M430 176 V207 H362 V268 M452 176 V207 H384 V268"],
+    mlp8_cycle: ["Eight independent pointer cycles", "Each lane depends on itself but not on the others. Several logical requests may overlap; this does not promise eightfold speedup.", "M400 176 V207 H332 V268 M415 176 V207 H347 V268 M430 176 V207 H362 V268 M445 176 V207 H377 V268 M460 176 V207 H392 V268"],
+    tlb_page_walk: ["Shuffled page walk", "Translation must be available before the data lookup. The historical timing alone cannot say how many dTLB or page-walk events occurred.", "M430 75 V207 H362 V268"]
+  };
+  let rows = [];
+  const parse = text => {
+    const lines = text.trim().split(/\r?\n/);
+    const header = lines.shift().split(",");
+    return lines.filter(Boolean).map(line => {
+      const cells = line.split(","), row = {};
+      header.forEach((name, index) => row[name] = cells[index] || "");
+      return row;
+    });
+  };
+  const option = (select, value, label) => {
+    const item = document.createElement("option");
+    item.value = value; item.textContent = label; select.append(item);
+  };
+  const svgText = (x, y, value, anchor) => '<text x="' + x + '" y="' + y + '" fill="#adbdcf" font-size="12" text-anchor="' + (anchor || "middle") + '">' + value + '</text>';
+  function renderCurve() {
+    const mode = $("mode").value;
+    const selected = rows.filter(row => row.mode === mode).sort((a, b) => Number(a.footprint_bytes) - Number(b.footprint_bytes));
+    const svg = $("curve");
+    const left = 66, right = 640, top = 30, bottom = 285;
+    const max = Math.max(...selected.map(row => Number(row.median_ns_per_operation))) * 1.12;
+    const minX = Math.log2(Number(selected[0].footprint_bytes)), maxX = Math.log2(Number(selected.at(-1).footprint_bytes));
+    const x = value => left + (Math.log2(value) - minX) / (maxX - minX) * (right - left);
+    const y = value => bottom - value / max * (bottom - top);
+    let content = '<line x1="' + left + '" y1="' + bottom + '" x2="' + right + '" y2="' + bottom + '" stroke="#40546a"/><line x1="' + left + '" y1="' + top + '" x2="' + left + '" y2="' + bottom + '" stroke="#40546a"/>' + svgText(12, 24, "ns/op", "start");
+    [0, max / 2, max].forEach(value => {
+      const py = y(value);
+      content += '<line x1="' + left + '" y1="' + py + '" x2="' + right + '" y2="' + py + '" stroke="#40546a" stroke-dasharray="3 5"/>' + svgText(left - 8, py + 4, value.toFixed(value < 10 ? 2 : 0), "end");
+    });
+    let line = "";
+    selected.forEach((row, index) => {
+      const px = x(Number(row.footprint_bytes)), py = y(Number(row.median_ns_per_operation));
+      line += (index ? " L" : "M") + px + " " + py;
+      content += '<circle cx="' + px + '" cy="' + py + '" r="5" fill="#72b7ff"/>' + svgText(px, bottom + 22, row.footprint_label) + svgText(px, py - 10, Number(row.median_ns_per_operation).toFixed(3));
+    });
+    svg.innerHTML = content + '<path d="' + line + '" fill="none" stroke="#72b7ff" stroke-width="3"/>';
+    $("curve-title").textContent = explanation[mode][0] + " across five footprints";
+  }
+  function renderComparison() {
+    const footprint = $("footprint").value;
+    const selected = rows.filter(row => row.footprint_bytes === footprint).sort((a, b) => order.indexOf(a.mode) - order.indexOf(b.mode));
+    const max = Math.max(...selected.map(row => Number(row.median_ns_per_operation)));
+    $("comparison").innerHTML = selected.map(row => '<tr><td>' + row.label + '</td><td><div class="bar" style="width:' + (Number(row.median_ns_per_operation) / max * 100).toFixed(2) + '%"></div></td><td>' + Number(row.median_ns_per_operation).toFixed(3) + '</td></tr>').join("");
+    $("comparison-title").textContent = "All loops at " + (selected[0] ? selected[0].footprint_label : "selected footprint");
+  }
+  function renderExplanation() {
+    const item = explanation[$("mode").value];
+    $("flow").setAttribute("d", item[2]);
+    $("flow-title").textContent = item[0] + " — topology explainer";
+    $("flow-detail").textContent = item[1];
+  }
+  function render() { renderCurve(); renderComparison(); renderExplanation(); }
+  async function load() {
+    try {
+      rows = parse(await fetch("data/legacy_timing.csv").then(response => {
+        if (!response.ok) throw new Error("missing historical data");
+        return response.text();
+      }));
+      order.forEach(mode => option($("mode"), mode, explanation[mode][0]));
+      [...new Set(rows.map(row => row.footprint_bytes))].sort((a, b) => Number(a) - Number(b)).forEach(value => {
+        const row = rows.find(item => item.footprint_bytes === value);
+        option($("footprint"), value, row.footprint_label);
+      });
+      $("mode").addEventListener("change", render);
+      $("footprint").addEventListener("change", render);
+      $("status").textContent = "Showing all 40 preserved historical medians. No raw samples, error bars, or per-variant PMU counts were retained.";
+      render();
+    } catch (error) {
+      $("status").textContent = "Historical timing CSV is unavailable.";
+    }
+  }
+  $("motion").addEventListener("click", () => {
+    const paused = $("architecture").classList.toggle("paused");
+    $("motion").textContent = paused ? "Resume explanatory flow" : "Pause explanatory flow";
+  });
+  load();
+})();
+</script>
+</body>
+</html>

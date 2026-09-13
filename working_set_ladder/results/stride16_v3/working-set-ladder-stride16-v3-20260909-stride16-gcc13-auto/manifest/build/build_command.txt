@@ -1,0 +1,1 @@
+g++-13 -std=c++20 -Wall -Wextra -Wpedantic -Werror -O3 -march=haswell -mtune=haswell -fno-PIE -no-pie -o /home/d3v/wsl-stride16-v3-build-20260909-stride16-gcc13-auto/working_set_ladder /home/d3v/wsl-stride16-src-20260909/src/working_set_ladder.cpp 

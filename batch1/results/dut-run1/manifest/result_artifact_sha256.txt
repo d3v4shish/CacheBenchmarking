@@ -1,0 +1,12 @@
+2d50734d65a2b06328567df6a9e3458319c7e9130673e79005d3e39fa8bff8a3  /home/d3v/benchmark-batch1-2026-09-07-run1/raw/samples.csv
+2121ad63c07ed1e242cc139efa4e4705fff9b1f0c70a08d7db7acb61f26f96db  /home/d3v/benchmark-batch1-2026-09-07-run1/raw/run_order.csv
+275a02b1618552d91b266f9d37aecfe9d96e96a7a464634f29ec97111ec800f2  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/binary_usage.txt
+773ab24b96fb2f7401749a80d8d214f6d1aba1b3d730c5fac230d4dfcdb8e841  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/cpu5_tasks_after.txt
+773ab24b96fb2f7401749a80d8d214f6d1aba1b3d730c5fac230d4dfcdb8e841  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/cpu5_tasks_before.txt
+5706b2d08e337edb7f8d0651d7b9e8f554bdb645ceaae3f39de37ad693114b53  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/disassembly_intel.txt
+2c464c6287c4b918bb2a4756f57586ef518ae8125183a4b6705d3cd491c92683  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/disassembly_with_opcodes.txt
+1c990cd014d54699c46e58fa8ee494834e29dcb1aeeab20d6e7e01c558ac9a75  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/perf_event_aliases.txt
+4da2d896528102e0a16c539e5f35999b9098b0f8e025c954baf6c981f3d7dcf4  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/post_run_frequency.txt
+ea15eebe4fd56012d841b6f716c64674af05756d958a1e87fe841abf862cf8d5  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/pre_run_machine.txt
+ecca08c3efdfb443417de221f27691faa3cfca2d77f43c8aa34bb6f5665a0e03  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/source_and_binary_sha256.txt
+be90836e0c51e66911ab83027464f9db354197996cf4f4c5ff8762eadaad370e  /home/d3v/benchmark-batch1-2026-09-07-run1/manifest/symbols.txt

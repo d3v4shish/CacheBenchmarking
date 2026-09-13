@@ -1,0 +1,5 @@
+only_mode=prefetch_chain
+only_implementation=scalar
+only_profiles=basic branch
+repetitions=18
+minimum_duration_ms=250

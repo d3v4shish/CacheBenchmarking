@@ -1,0 +1,42 @@
+provenance,mode,label,footprint_bytes,footprint_label,median_ns_per_operation,repetitions,pmu_status
+historical_haswell_2026-06-02,linear_scan,Linear scan,32768,32 KiB,0.600,5,not_retained
+historical_haswell_2026-06-02,linear_scan,Linear scan,262144,256 KiB,0.527,5,not_retained
+historical_haswell_2026-06-02,linear_scan,Linear scan,1048576,1 MiB,0.534,5,not_retained
+historical_haswell_2026-06-02,linear_scan,Linear scan,8388608,8 MiB,0.827,5,not_retained
+historical_haswell_2026-06-02,linear_scan,Linear scan,67108864,64 MiB,0.867,5,not_retained
+historical_haswell_2026-06-02,stride16_scan,Stride-16 scan,32768,32 KiB,2.201,5,not_retained
+historical_haswell_2026-06-02,stride16_scan,Stride-16 scan,262144,256 KiB,4.948,5,not_retained
+historical_haswell_2026-06-02,stride16_scan,Stride-16 scan,1048576,1 MiB,6.114,5,not_retained
+historical_haswell_2026-06-02,stride16_scan,Stride-16 scan,8388608,8 MiB,9.258,5,not_retained
+historical_haswell_2026-06-02,stride16_scan,Stride-16 scan,67108864,64 MiB,10.034,5,not_retained
+historical_haswell_2026-06-02,random_access,Random direct read,32768,32 KiB,3.911,5,not_retained
+historical_haswell_2026-06-02,random_access,Random direct read,262144,256 KiB,5.000,5,not_retained
+historical_haswell_2026-06-02,random_access,Random direct read,1048576,1 MiB,8.298,5,not_retained
+historical_haswell_2026-06-02,random_access,Random direct read,8388608,8 MiB,18.924,5,not_retained
+historical_haswell_2026-06-02,random_access,Random direct read,67108864,64 MiB,45.038,5,not_retained
+historical_haswell_2026-06-02,arena_pointer_chase,Random 64-byte pointer node,32768,32 KiB,9.365,5,not_retained
+historical_haswell_2026-06-02,arena_pointer_chase,Random 64-byte pointer node,262144,256 KiB,29.733,5,not_retained
+historical_haswell_2026-06-02,arena_pointer_chase,Random 64-byte pointer node,1048576,1 MiB,53.748,5,not_retained
+historical_haswell_2026-06-02,arena_pointer_chase,Random 64-byte pointer node,8388608,8 MiB,109.177,5,not_retained
+historical_haswell_2026-06-02,arena_pointer_chase,Random 64-byte pointer node,67108864,64 MiB,170.508,5,not_retained
+historical_haswell_2026-06-02,dependent_index_cycle,Dependent index cycle,32768,32 KiB,6.396,5,not_retained
+historical_haswell_2026-06-02,dependent_index_cycle,Dependent index cycle,262144,256 KiB,19.608,5,not_retained
+historical_haswell_2026-06-02,dependent_index_cycle,Dependent index cycle,1048576,1 MiB,45.818,5,not_retained
+historical_haswell_2026-06-02,dependent_index_cycle,Dependent index cycle,8388608,8 MiB,116.110,5,not_retained
+historical_haswell_2026-06-02,dependent_index_cycle,Dependent index cycle,67108864,64 MiB,160.778,5,not_retained
+historical_haswell_2026-06-02,prefetch_chain,Pointer cycle plus prefetch,32768,32 KiB,9.847,5,not_retained
+historical_haswell_2026-06-02,prefetch_chain,Pointer cycle plus prefetch,262144,256 KiB,24.481,5,not_retained
+historical_haswell_2026-06-02,prefetch_chain,Pointer cycle plus prefetch,1048576,1 MiB,50.856,5,not_retained
+historical_haswell_2026-06-02,prefetch_chain,Pointer cycle plus prefetch,8388608,8 MiB,103.324,5,not_retained
+historical_haswell_2026-06-02,prefetch_chain,Pointer cycle plus prefetch,67108864,64 MiB,187.059,5,not_retained
+historical_haswell_2026-06-02,mlp8_cycle,Eight independent pointer cycles,32768,32 KiB,1.261,5,not_retained
+historical_haswell_2026-06-02,mlp8_cycle,Eight independent pointer cycles,262144,256 KiB,3.788,5,not_retained
+historical_haswell_2026-06-02,mlp8_cycle,Eight independent pointer cycles,1048576,1 MiB,6.932,5,not_retained
+historical_haswell_2026-06-02,mlp8_cycle,Eight independent pointer cycles,8388608,8 MiB,17.450,5,not_retained
+historical_haswell_2026-06-02,mlp8_cycle,Eight independent pointer cycles,67108864,64 MiB,42.083,5,not_retained
+historical_haswell_2026-06-02,tlb_page_walk,Shuffled one-touch-per-page walk,32768,32 KiB,19.375,5,not_retained
+historical_haswell_2026-06-02,tlb_page_walk,Shuffled one-touch-per-page walk,262144,256 KiB,7.828,5,not_retained
+historical_haswell_2026-06-02,tlb_page_walk,Shuffled one-touch-per-page walk,1048576,1 MiB,7.070,5,not_retained
+historical_haswell_2026-06-02,tlb_page_walk,Shuffled one-touch-per-page walk,8388608,8 MiB,28.464,5,not_retained
+historical_haswell_2026-06-02,tlb_page_walk,Shuffled one-touch-per-page walk,67108864,64 MiB,38.044,5,not_retained
+

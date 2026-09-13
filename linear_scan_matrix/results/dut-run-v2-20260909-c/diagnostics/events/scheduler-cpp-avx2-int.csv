@@ -1,0 +1,7 @@
+# started on Wed Sep  9 06:31:43 2026
+
+0,,context-switches,213116209,100.00,,
+0,,cpu-migrations,213116209,100.00,,
+16449,,page-faults,213116209,100.00,,
+16449,,minor-faults,213116209,100.00,,
+0,,major-faults,213116209,100.00,,

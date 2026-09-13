@@ -1,0 +1,7 @@
+2026-09-07T01:58:52+05:30
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor:performance
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_cur_freq:3200000
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq:3200000
+/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq:3200000
+/sys/devices/system/cpu/intel_pstate/status:passive
+/sys/devices/system/cpu/intel_pstate/no_turbo:0

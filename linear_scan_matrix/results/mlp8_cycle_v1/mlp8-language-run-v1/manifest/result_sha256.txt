@@ -1,0 +1,13 @@
+3c452dba634bdb507e82ad99c90006653d636b620d100d30b232fbd7e56052b4  /home/d3v/mlp8-language-run-v1/raw/run_order.csv
+c893ee566a064524fae900972dfa60a31c2d25a3036f9fac90ae5da0994de9f4  /home/d3v/mlp8-language-run-v1/raw/samples.csv
+2f43bc9fc42a86d4c0f99f3c69e6de96d86842571b89dbaa1a86d90ee2bd0261  /home/d3v/mlp8-language-run-v1/raw/summary_mlp8_language.csv
+9c43c13d796a9a2a8981c0d9c6f17d23ca7f39620c9012de90ac809b9318d7ef  /home/d3v/mlp8-language-run-v1/manifest/mlp8_c.disassembly.txt
+34b86febff57ddf2ad77c437d6365d8b90433de847415a250128cc156d0a9a97  /home/d3v/mlp8-language-run-v1/manifest/mlp8_cpp.disassembly.txt
+8e423e2af6e924410e6cff70725e9907971dcdbf85d38a174f094d3f614b4f1f  /home/d3v/mlp8-language-run-v1/manifest/mlp8_go.disassembly.txt
+111ecb7e9931d5a40bc696e015d56a5fe1100cf34f12ae46599ba5d639f9d88f  /home/d3v/mlp8-language-run-v1/manifest/mlp8_rust.disassembly.txt
+65d292137b720dcc458fbbcc6d7401365fd8477b8a2d5f1c4e5192ab3b3e9400  /home/d3v/mlp8-language-run-v1/manifest/post_run_frequency.txt
+24efb1674f789fc50d5520009fb456e4ad4cf76b21d1cd7c69aee47e63b7449f  /home/d3v/mlp8-language-run-v1/manifest/pre_run_machine.txt
+ce098367242ab09bc0638d1f5a03683cdfde9d161852a7db344d17c2b8d0305b  /home/d3v/mlp8-language-run-v1/manifest/run_plan.txt
+6ed3682840ca8308f01eac6982f64afbbb60fca9792069f447c85e29f147084a  /home/d3v/mlp8-language-run-v1/manifest/source_binary_sha256.txt
+0d09804dbf7b6f36f561940fcbe8c4a3cc19b7237cbbb743813ba443acd0ff77  /home/d3v/mlp8-language-run-v1/manifest/tasks_after.txt
+a662e9fbb3a5e2be6ad4eaa25b9cbf14699bef7ac7be92ff7baad330822f8590  /home/d3v/mlp8-language-run-v1/manifest/tasks_before.txt

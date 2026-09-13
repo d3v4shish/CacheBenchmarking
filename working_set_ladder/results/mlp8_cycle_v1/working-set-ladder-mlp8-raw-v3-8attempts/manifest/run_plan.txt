@@ -1,0 +1,4 @@
+mode=mlp8_cycle
+repetitions=8
+minimum_accepted_rows=6
+source_root=/home/d3v/mlp8-src-20260910

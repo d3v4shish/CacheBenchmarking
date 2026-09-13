@@ -1,0 +1,16 @@
+g++-13 -std=c++20 -O3 -march=haswell -mtune=haswell -mavx2 -fno-tree-vectorize -fno-tree-slp-vectorize -Wall -Wextra -Werror -I/home/d3v/mlp8-language-src-20260910/src /home/d3v/mlp8-language-src-20260910/src/mlp8_cpp.cpp /home/d3v/mlp8-lane-pair-run-v1/bin/libscanpmu.a -DMLP_LANES=1 
+g++-13 
+-std=c++20 
+-O3 
+-march=haswell 
+-mtune=haswell 
+-mavx2 
+-fno-tree-vectorize 
+-fno-tree-slp-vectorize 
+-Wall 
+-Wextra 
+-Werror 
+-I/home/d3v/mlp8-language-src-20260910/src 
+/home/d3v/mlp8-language-src-20260910/src/mlp8_cpp.cpp 
+/home/d3v/mlp8-lane-pair-run-v1/bin/libscanpmu.a 
+-DMLP_LANES=8 

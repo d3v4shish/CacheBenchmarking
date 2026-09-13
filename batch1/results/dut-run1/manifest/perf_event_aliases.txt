@@ -1,0 +1,620 @@
+  mem_uops_retired.all_loads
+       [Retired load uops Supports address when precise. Spec update: HSD29,
+        HSM30 (Precise event). Unit: cpu]
+--
+  mem_uops_retired.all_stores
+       [Retired store uops Supports address when precise. Spec update: HSD29,
+        HSM30 (Precise event). Unit: cpu]
+--
+  ref-cycles
+       [Total cycles; not affected by CPU frequency scaling. Unit: cpu]
+        cpu/event=0x00,umask=0x03/
+--
+  cpu_clk_unhalted.thread
+       [Core cycles when the thread is not in halt state. Unit: cpu]
+        cpu/event=0x3c,period=2000003/
+  cpu_clk_unhalted.thread_any
+       [Core cycles when at least one thread on the physical core is not in
+        halt state. Unit: cpu]
+--
+  cpu_clk_unhalted.thread_p
+       [Thread cycles when thread is not in halt state. Unit: cpu]
+        cpu/event=0x3c,period=2000003/
+  cpu_clk_unhalted.thread_p_any
+       [Core cycles when at least one thread on the physical core is not in
+        halt state. Unit: cpu]
+--
+  uops_dispatched_port.port_0
+       [Cycles per thread when uops are executed in port 0. Unit: cpu]
+        cpu/event=0xa1,period=2000003,umask=1/
+  uops_dispatched_port.port_1
+       [Cycles per thread when uops are executed in port 1. Unit: cpu]
+        cpu/event=0xa1,period=2000003,umask=2/
+--
+  uops_dispatched_port.port_5
+       [Cycles per thread when uops are executed in port 5. Unit: cpu]
+        cpu/event=0xa1,period=2000003,umask=0x20/
+--
+  uops_issued.any
+       [Uops that Resource Allocation Table (RAT) issues to Reservation
+        Station (RS). Unit: cpu]
+--
+  uops_retired.all
+       [Actually retired uops (Precise event). Unit: cpu]
+        cpu/event=0xc2,period=2000003,umask=1/
+--
+       [(min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) +
+        RESOURCE_STALLS.SB) / (min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) + (cpu@UOPS_EXECUTED.CORE\,cmask\=1@
+        - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@ if tma_info_thread_ipc > 1.8 else
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+        UOPS_ISSUED.ANY * BR_MISP_EXEC.INDIRECT)]
+       [tma_info_bad_spec_ipmisp_indirect < 1e3]
+  tma_info_bad_spec_ipmispredict
+--
+        UOPS_ISSUED.ANY * BR_MISP_EXEC.INDIRECT)]
+       [tma_info_bad_spec_ipmisp_indirect < 1e3]
+  tma_info_bad_spec_ipmispredict
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [UOPS_DISPATCHED_PORT.PORT_0 / tma_info_core_core_clks]
+       [tma_port_0 > 0.6]
+
+--
+       [4 * min(CPU_CLK_UNHALTED.THREAD,
+        IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE) /
+        tma_info_thread_slots]
+--
+       [INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_LOADS]
+       [tma_info_inst_mix_ipload < 3]
+  tma_info_inst_mix_ipstore
+--
+       [INST_RETIRED.ANY / MEM_UOPS_RETIRED.ALL_STORES]
+       [tma_info_inst_mix_ipstore < 8]
+
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [CPU_CLK_UNHALTED.THREAD_P:k / INST_RETIRED.ANY_P:k]
+  tma_info_system_kernel_utilization
+       [Fraction of cycles spent in the Operating System (OS) Kernel mode]
+       [CPU_CLK_UNHALTED.THREAD_P:k / CPU_CLK_UNHALTED.THREAD]
+       [tma_info_system_kernel_utilization > 0.05]
+
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [CPU_CLK_UNHALTED.THREAD]
+  tma_info_thread_cpi
+       [Cycles Per Instruction (per Logical Processor)]
+--
+       [((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        (cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,
+        cmask\=3@ if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+        RESOURCE_STALLS.SB) - RESOURCE_STALLS.SB - min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.STALLS_LDM_PENDING)) / tma_info_thread_clks]
+       [tma_ports_utilization > 0.15 & (tma_core_bound > 0.1 &
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) -
+        (RS_EVENTS.EMPTY_CYCLES if tma_fetch_latency > 0.1 else 0)) /
+        tma_info_core_core_clks]
+--
+       [(CPU_CLK_UNHALTED.THREAD / 2 * (1 + CPU_CLK_UNHALTED.ONE_THREAD_ACTIVE
+        / CPU_CLK_UNHALTED.REF_XCLK) if #core_wide < 1 else
+        (CPU_CLK_UNHALTED.THREAD_ANY / 2 if #SMT_on else
+        tma_info_thread_clks))]
+  tma_info_core_coreipc
+--
+       [CPU_CLK_UNHALTED.THREAD_P / CPU_CLK_UNHALTED.THREAD]
+       [tma_info_system_mux > 1.1 | tma_info_system_mux < 0.9]
+  tma_info_system_time
+--
+       [(UOPS_ISSUED.ANY - UOPS_RETIRED.RETIRE_SLOTS + 4 *
+        (INT_MISC.RECOVERY_CYCLES_ANY / 2 if #SMT_on else
+        INT_MISC.RECOVERY_CYCLES)) / tma_info_thread_slots]
+--
+       [4 * min(CPU_CLK_UNHALTED.THREAD,
+        IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE) /
+        tma_info_thread_slots]
+--
+       [(min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) +
+        RESOURCE_STALLS.SB) / (min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) + (cpu@UOPS_EXECUTED.CORE\,cmask\=1@
+        - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@ if tma_info_thread_ipc > 1.8 else
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [(UOPS_ISSUED.ANY - UOPS_RETIRED.RETIRE_SLOTS + 4 *
+        (INT_MISC.RECOVERY_CYCLES_ANY / 2 if #SMT_on else
+        INT_MISC.RECOVERY_CYCLES)) / tma_info_thread_slots]
+--
+       [4 * min(CPU_CLK_UNHALTED.THREAD,
+        IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE) /
+        tma_info_thread_slots]
+--
+       [(min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) +
+        RESOURCE_STALLS.SB) / (min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) + (cpu@UOPS_EXECUTED.CORE\,cmask\=1@
+        - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@ if tma_info_thread_ipc > 1.8 else
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        (cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,
+        cmask\=3@ if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+        RESOURCE_STALLS.SB) - RESOURCE_STALLS.SB - min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.STALLS_LDM_PENDING)) / tma_info_thread_clks]
+       [tma_ports_utilization > 0.15 & (tma_core_bound > 0.1 &
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) -
+        (RS_EVENTS.EMPTY_CYCLES if tma_fetch_latency > 0.1 else 0)) /
+        tma_info_core_core_clks]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [(UOPS_DISPATCHED_PORT.PORT_0 + UOPS_DISPATCHED_PORT.PORT_1 +
+        UOPS_DISPATCHED_PORT.PORT_5 + UOPS_DISPATCHED_PORT.PORT_6) /
+        tma_info_thread_slots]
+       [tma_alu_op_utilization > 0.4]
+--
+       [UOPS_DISPATCHED_PORT.PORT_0 / tma_info_core_core_clks]
+       [tma_port_0 > 0.6]
+  tma_port_1
+--
+       [UOPS_DISPATCHED_PORT.PORT_1 / tma_info_core_core_clks]
+       [tma_port_1 > 0.6]
+  tma_port_2
+--
+       [UOPS_DISPATCHED_PORT.PORT_5 / tma_info_core_core_clks]
+       [tma_port_5 > 0.6]
+  tma_port_6
+--
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS,context\-switches)]
+  lpm_cs_rate
+       [Context switches per second]
+--
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES,context\-switches)]
+
+lpm_cycles: [cycles breakdown per privilege level (users, kernel, guest)]
+--
+        INST_RETIRED.ANY_P@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD_P_ANY) -
+        d_ratio(max(INST_RETIRED.ANY_P@cmask\=2@ -
+        INST_RETIRED.ANY_P@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD_P_ANY) -
+        d_ratio(max(INST_RETIRED.ANY_P@cmask\=3@ -
+        INST_RETIRED.ANY_P@cmask\=4@,0),CPU_CLK_UNHALTED.THREAD_P_ANY) -
+        d_ratio(max(INST_RETIRED.ANY_P@cmask\=4@ -
+        INST_RETIRED.ANY_P@cmask\=5@,0),CPU_CLK_UNHALTED.THREAD_P_ANY) -
+        d_ratio(INST_RETIRED.ANY_P@cmask\=5@,CPU_CLK_UNHALTED.THREAD_P_ANY)]
+  lpm_ilp_inst_ret_1
+       [Instructions retired in 1 cycles as a percentage of all cycles]
+--
+        INST_RETIRED.ANY_P@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD_P_ANY)]
+  lpm_ilp_inst_ret_2
+       [Instructions retired in 2 cycles as a percentage of all cycles]
+--
+        INST_RETIRED.ANY_P@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD_P_ANY)]
+  lpm_ilp_inst_ret_3
+       [Instructions retired in 3 cycles as a percentage of all cycles]
+--
+        INST_RETIRED.ANY_P@cmask\=4@,0),CPU_CLK_UNHALTED.THREAD_P_ANY)]
+  lpm_ilp_inst_ret_4
+       [Instructions retired in 4 cycles as a percentage of all cycles]
+--
+        INST_RETIRED.ANY_P@cmask\=5@,0),CPU_CLK_UNHALTED.THREAD_P_ANY)]
+  lpm_ilp_inst_ret_5
+       [Instructions retired in 5 or more cycles as a percentage of all cycles]
+       [d_ratio(INST_RETIRED.ANY_P@cmask\=5@,CPU_CLK_UNHALTED.THREAD_P_ANY)]
+
+lpm_l2: [L2 data cache analysis]
+--
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS,instructions)]
+  lpm_ldst_prcnt_stores
+       [Percent of all instructions that are stores]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES,instructions)]
+  lpm_ldst_ret_lds_1
+       [Retired loads in 1 cycle]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=1@ -
+        MEM_UOPS_RETIRED.ALL_LOADS@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_lds_2
+       [Retired loads in 2 cycles]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=2@ -
+        MEM_UOPS_RETIRED.ALL_LOADS@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_lds_3
+       [Retired loads in 3 or more cycles]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=3@,CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_sts_1
+       [Retired stores in 1 cycle]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_STORES@cmask\=1@ -
+        MEM_UOPS_RETIRED.ALL_STORES@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_sts_2
+       [Retired stores in 2 cycles]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_STORES@cmask\=2@ -
+        MEM_UOPS_RETIRED.ALL_STORES@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_sts_3
+       [Retired stores in 3 more cycles]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES@cmask\=3@,CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_total_loads
+       [Load/store instructions total loads]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS,duration_time)]
+  lpm_ldst_total_stores
+       [Load/store instructions total stores]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES,duration_time)]
+
+lpm_ldst_prcnt:
+--
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS,instructions)]
+  lpm_ldst_prcnt_stores
+       [Percent of all instructions that are stores]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES,instructions)]
+
+lpm_ldst_ret_lds:
+--
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=1@ -
+        MEM_UOPS_RETIRED.ALL_LOADS@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_lds_2
+       [Retired loads in 2 cycles]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=2@ -
+        MEM_UOPS_RETIRED.ALL_LOADS@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_lds_3
+       [Retired loads in 3 or more cycles]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS@cmask\=3@,CPU_CLK_UNHALTED.THREAD)]
+
+lpm_ldst_ret_sts:
+--
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_STORES@cmask\=1@ -
+        MEM_UOPS_RETIRED.ALL_STORES@cmask\=2@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_sts_2
+       [Retired stores in 2 cycles]
+       [d_ratio(max(MEM_UOPS_RETIRED.ALL_STORES@cmask\=2@ -
+        MEM_UOPS_RETIRED.ALL_STORES@cmask\=3@,0),CPU_CLK_UNHALTED.THREAD)]
+  lpm_ldst_ret_sts_3
+       [Retired stores in 3 more cycles]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES@cmask\=3@,CPU_CLK_UNHALTED.THREAD)]
+
+lpm_ldst_total:
+--
+       [d_ratio(MEM_UOPS_RETIRED.ALL_LOADS,duration_time)]
+  lpm_ldst_total_stores
+       [Load/store instructions total stores]
+       [d_ratio(MEM_UOPS_RETIRED.ALL_STORES,duration_time)]
+
+lpm_mlp:
+--
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_0,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_1
+       [port_1 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_1,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_2
+       [port_2 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_2,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_3
+       [port_3 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_3,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_4
+       [port_4 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_4,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_5
+       [port_5 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_5,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_6
+       [port_6 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_6,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+  lpm_port_7
+       [port_7 utilization (higher is better)]
+       [d_ratio(UOPS_DISPATCHED_PORT.PORT_7,(CPU_CLK_UNHALTED.THREAD_P_ANY / 2
+        if #smt_on else CPU_CLK_UNHALTED.THREAD_P_ANY))]
+
+smi: [System Management Interrupt metrics]
+--
+       [(UOPS_ISSUED.ANY - UOPS_RETIRED.RETIRE_SLOTS + 4 *
+        (INT_MISC.RECOVERY_CYCLES_ANY / 2 if #SMT_on else
+        INT_MISC.RECOVERY_CYCLES)) / tma_info_thread_slots]
+--
+       [4 * min(CPU_CLK_UNHALTED.THREAD,
+        IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE) /
+        tma_info_thread_slots]
+--
+       [(min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) +
+        RESOURCE_STALLS.SB) / (min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) + (cpu@UOPS_EXECUTED.CORE\,cmask\=1@
+        - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@ if tma_info_thread_ipc > 1.8 else
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        (cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,
+        cmask\=3@ if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+        RESOURCE_STALLS.SB) - RESOURCE_STALLS.SB - min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.STALLS_LDM_PENDING)) / tma_info_thread_clks]
+       [tma_ports_utilization > 0.15 & (tma_core_bound > 0.1 &
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) -
+        (RS_EVENTS.EMPTY_CYCLES if tma_fetch_latency > 0.1 else 0)) /
+        tma_info_core_core_clks]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [(UOPS_DISPATCHED_PORT.PORT_0 + UOPS_DISPATCHED_PORT.PORT_1 +
+        UOPS_DISPATCHED_PORT.PORT_5 + UOPS_DISPATCHED_PORT.PORT_6) /
+        tma_info_thread_slots]
+       [tma_alu_op_utilization > 0.4]
+--
+       [UOPS_DISPATCHED_PORT.PORT_0 / tma_info_core_core_clks]
+       [tma_port_0 > 0.6]
+  tma_port_1
+--
+       [UOPS_DISPATCHED_PORT.PORT_1 / tma_info_core_core_clks]
+       [tma_port_1 > 0.6]
+  tma_port_2
+--
+       [UOPS_DISPATCHED_PORT.PORT_5 / tma_info_core_core_clks]
+       [tma_port_5 > 0.6]
+  tma_port_6
+--
+       [UOPS_DISPATCHED_PORT.PORT_0 / tma_info_core_core_clks]
+       [tma_port_0 > 0.6]
+  tma_port_1
+--
+       [UOPS_DISPATCHED_PORT.PORT_1 / tma_info_core_core_clks]
+       [tma_port_1 > 0.6]
+  tma_port_5
+--
+       [UOPS_DISPATCHED_PORT.PORT_5 / tma_info_core_core_clks]
+       [tma_port_5 > 0.6]
+  tma_port_6
+--
+       [(min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) +
+        RESOURCE_STALLS.SB) / (min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) + (cpu@UOPS_EXECUTED.CORE\,cmask\=1@
+        - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@ if tma_info_thread_ipc > 1.8 else
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+       [((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        (cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,
+        cmask\=3@ if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) +
+        cpu@UOPS_EXECUTED.CORE\,cmask\=1@ - (cpu@UOPS_EXECUTED.CORE\,cmask\=3@
+        if tma_info_thread_ipc > 1.8 else cpu@UOPS_EXECUTED.CORE\,cmask\=2@) -
+--
+        RESOURCE_STALLS.SB) - RESOURCE_STALLS.SB - min(CPU_CLK_UNHALTED.THREAD,
+        CYCLE_ACTIVITY.STALLS_LDM_PENDING)) / tma_info_thread_clks]
+       [tma_ports_utilization > 0.15 & (tma_core_bound > 0.1 &
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+       [4 * min(CPU_CLK_UNHALTED.THREAD,
+        IDQ_UOPS_NOT_DELIVERED.CYCLES_0_UOPS_DELIV.CORE) /
+        tma_info_thread_slots]
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [UOPS_DISPATCHED_PORT.PORT_0 / tma_info_core_core_clks]
+       [tma_port_0 > 0.6]
+  tma_port_1
+--
+       [UOPS_DISPATCHED_PORT.PORT_1 / tma_info_core_core_clks]
+       [tma_port_1 > 0.6]
+  tma_port_5
+--
+       [UOPS_DISPATCHED_PORT.PORT_5 / tma_info_core_core_clks]
+       [tma_port_5 > 0.6]
+  tma_port_6
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        cpu@OFFCORE_REQUESTS_OUTSTANDING.ALL_DATA_RD\,cmask\=6@) /
+        tma_info_thread_clks]
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DATA_RD) /
+        tma_info_thread_clks - tma_mem_bandwidth]
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [UOPS_RETIRED.RETIRE_SLOTS / UOPS_ISSUED.ANY * IDQ.MS_UOPS /
+        tma_info_thread_slots]
+       [tma_microcode_sequencer > 0.05 & tma_heavy_operations > 0.1]
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]
+--
+       [MEM_UOPS_RETIRED.LOCK_LOADS / MEM_UOPS_RETIRED.ALL_STORES *
+        min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO) /
+        tma_info_thread_clks]
+--
+       [max((min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.STALLS_LDM_PENDING) -
+        CYCLE_ACTIVITY.STALLS_L1D_PENDING) / tma_info_thread_clks,0)]
+       [tma_l1_bound > 0.1 & (tma_memory_bound > 0.2 & tma_backend_bound >
+--
+        min(CPU_CLK_UNHALTED.THREAD,CYCLE_ACTIVITY.CYCLES_NO_EXECUTE) -
+        (RS_EVENTS.EMPTY_CYCLES if tma_fetch_latency > 0.1 else 0)) /
+        tma_info_core_core_clks]
+--
+       [(UOPS_DISPATCHED_PORT.PORT_0 + UOPS_DISPATCHED_PORT.PORT_1 +
+        UOPS_DISPATCHED_PORT.PORT_5 + UOPS_DISPATCHED_PORT.PORT_6) /
+        tma_info_thread_slots]
+       [tma_alu_op_utilization > 0.4]
+--
+        MEM_UOPS_RETIRED.ALL_STORES) + (1 - MEM_UOPS_RETIRED.LOCK_LOADS /
+        MEM_UOPS_RETIRED.ALL_STORES) * min(CPU_CLK_UNHALTED.THREAD,
+        OFFCORE_REQUESTS_OUTSTANDING.CYCLES_WITH_DEMAND_RFO)) /
+        tma_info_thread_clks]

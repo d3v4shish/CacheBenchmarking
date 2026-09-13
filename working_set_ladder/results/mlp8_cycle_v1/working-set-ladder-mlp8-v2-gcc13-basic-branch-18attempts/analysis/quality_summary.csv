@@ -1,0 +1,17 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+mlp8-gcc13-scalar,mlp8_cycle,scalar,cache_evicted,basic,1048576,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,cache_evicted,basic,8388608,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,cache_evicted,branch,33554432,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,229376,timed_page_fault,2
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,294912,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,393216,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,5242880,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,7340032,timed_page_fault,2
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,33554432,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,basic,134217728,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,65536,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,98304,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,196608,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,229376,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,4194304,timed_page_fault,1
+mlp8-gcc13-scalar,mlp8_cycle,scalar,warm,branch,6291456,timed_page_fault,1

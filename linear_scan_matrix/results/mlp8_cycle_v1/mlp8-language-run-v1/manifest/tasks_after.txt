@@ -1,0 +1,284 @@
+    PID PSR COMMAND
+      1   1 systemd
+      2   0 kthreadd
+      3   2 pool_workqueue_release
+      4   0 kworker/R-rcu_gp
+      5   0 kworker/R-sync_wq
+      6   0 kworker/R-kvfree_rcu_reclaim
+      7   0 kworker/R-slub_flushwq
+      8   0 kworker/R-netns
+     10   0 kworker/0:0H-kblockd
+     13   0 kworker/R-mm_percpu_wq
+     14   0 ksoftirqd/0
+     15   2 rcu_preempt
+     16   0 rcuog/0
+     17   0 rcuop/0
+     18   0 rcu_exp_par_gp_kthread_worker/0
+     19   2 rcu_exp_gp_kthread_worker
+     20   0 migration/0
+     21   0 kprobe-optimizer
+     22   0 idle_inject/0
+     23   0 cpuhp/0
+     24   2 cpuhp/2
+     25   2 idle_inject/2
+     26   2 migration/2
+     27   2 ksoftirqd/2
+     29   2 kworker/2:0H-kblockd
+     30   0 rcuop/2
+     31   4 cpuhp/4
+     32   4 idle_inject/4
+     33   4 migration/4
+     34   4 ksoftirqd/4
+     35   4 kworker/4:0-events
+     36   4 kworker/4:0H-kblockd
+     37   3 rcuog/4
+     38   0 rcuop/4
+     39   6 cpuhp/6
+     40   6 idle_inject/6
+     41   6 migration/6
+     42   6 ksoftirqd/6
+     43   0 kworker/6:0
+     44   6 kworker/6:0H-kblockd
+     45   3 rcuop/6
+     46   1 cpuhp/1
+     47   1 idle_inject/1
+     48   1 migration/1
+     49   1 ksoftirqd/1
+     51   1 kworker/1:0H-kblockd
+     52   0 rcuop/1
+     53   3 cpuhp/3
+     54   3 idle_inject/3
+     55   3 migration/3
+     56   3 ksoftirqd/3
+     58   3 kworker/3:0H-kblockd
+     59   0 rcuop/3
+     60   5 cpuhp/5
+     61   5 idle_inject/5
+     62   5 migration/5
+     63   5 ksoftirqd/5
+     64   5 kworker/5:0-events
+     65   0 kworker/5:0H
+     66   3 rcuop/5
+     67   7 cpuhp/7
+     68   7 idle_inject/7
+     69   7 migration/7
+     70   7 ksoftirqd/7
+     71   7 kworker/7:0-mm_percpu_wq
+     72   0 kworker/7:0H
+     73   0 rcuop/7
+     74   1 kdevtmpfs
+     75   2 kworker/R-inet_frag_wq
+     76   2 rcu_tasks_kthread
+     77   2 rcu_tasks_rude_kthread
+     78   2 kauditd
+     79   1 khungtaskd
+     81   3 oom_reaper
+     83   2 kworker/R-writeback
+     84   2 kcompactd0
+     85   2 ksmd
+     86   2 khugepaged
+     87   2 kworker/R-kblockd
+     88   3 kworker/R-blkcg_punt_bio
+     89   2 kworker/R-kintegrityd
+     90   1 irq/9-acpi
+     94   0 kworker/R-tpm_dev_wq
+     95   0 kworker/R-ata_sff
+     96   0 kworker/R-md_bitmap
+     97   0 kworker/R-md_llbitmap_io
+     98   2 kworker/R-md_llbitmap_unplug
+     99   2 kworker/R-edac-poller
+    100   2 kworker/R-devfreq_wq
+    101   3 watchdogd
+    102   2 kworker/R-quota_events_unbound
+    103   0 kswapd0
+    104   3 ecryptfs-kthread
+    105   2 kworker/R-kthrotld
+    106   0 kworker/R-acpi_thermal_pm
+    107   1 scsi_eh_0
+    108   3 kworker/R-scsi_tmf_0
+    109   3 scsi_eh_1
+    110   3 kworker/R-scsi_tmf_1
+    115   3 kworker/R-mld
+    116   3 kworker/R-ipv6_addrconf
+    117   3 kworker/R-kstrp
+    118   4 kworker/4:1-mm_percpu_wq
+    119   5 kworker/5:1-events
+    121   0 kworker/u33:0-i915_flip
+    132   1 kworker/R-charger_manager
+    189   2 kworker/2:1H-kblockd
+    242   0 kworker/0:1H-kblockd
+    244   1 kworker/1:1H-kblockd
+    245   2 jbd2/sda2-8
+    246   0 kworker/R-ext4-rsv-conversion
+    255   3 kworker/3:1H-kblockd
+    669   1 irq/30-mei_me
+    710   1 kworker/R-cfg80211
+    720   2 kworker/R-ttm
+    725   3 card0-crtc0
+    726   3 card0-crtc1
+    727   2 card0-crtc2
+    972   0 kworker/u33:2-hci0
+   1003   0 avahi-daemon
+   1004   3 bluetoothd
+   1006   0 dbus-daemon
+   1009   3 gnome-remote-de
+   1014   0 polkitd
+   1015   1 power-profiles-
+   1020   1 smartd
+   1030   2 cron
+   1031   3 switcheroo-cont
+   1035   3 systemd-logind
+   1036   0 thermald
+   1048   0 avahi-daemon
+   1158   0 NetworkManager
+   1166   0 wpa_supplicant
+   1242   1 ModemManager
+   1253   2 cpupower-gui-he
+   1284   2 x2gocleansessio
+   1368   3 hwrng
+   1372   3 gitea
+   1374   1 supervisord
+   1378   0 unattended-upgr
+   1384   1 systemd
+   1386   3 containerd
+   1388   1 (sd-pam)
+   1448   3 pipewire
+   1449   2 pipewire
+   1451   1 wireplumber
+   1452   2 pipewire-pulse
+   1457   1 dbus-daemon
+   1468   0 rtkit-daemon
+   1489   2 xdg-permission-
+   1571   3 dockerd
+   1580   0 kerneloops
+   1583   0 kerneloops
+   1665   0 gdm3
+   2486   0 krfcommd
+   2534   3 colord
+   2588   1 upowerd
+   3830   3 xdg-document-po
+   3841   3 fusermount3
+   5895   3 gdm-session-wor
+   5903   0 gnome-keyring-d
+   5923   2 gdm-x-session
+   5928   1 Xorg
+   5994   1 gnome-session-b
+   6099   2 at-spi-bus-laun
+   6106   2 dbus-daemon
+   6114   1 gcr-ssh-agent
+   6115   3 gnome-remote-de
+   6116   1 gnome-session-c
+   6128   3 gvfsd
+   6151   0 gvfsd-fuse
+   6155   2 gnome-session-b
+   6189   2 gnome-shell
+   6218   3 mutter-x11-fram
+   6221   2 at-spi2-registr
+   6249   3 gnome-shell-cal
+   6257   2 evolution-sourc
+   6264   3 dconf-service
+   6273   1 gjs
+   6289   0 ibus-daemon
+   6294   3 gsd-a11y-settin
+   6301   0 gsd-color
+   6311   3 gsd-datetime
+   6312   2 gsd-housekeepin
+   6313   3 gsd-keyboard
+   6315   1 gsd-media-keys
+   6316   1 gsd-power
+   6321   0 gsd-print-notif
+   6328   2 gsd-rfkill
+   6329   0 gsd-screensaver
+   6332   1 goa-daemon
+   6333   3 gsd-sharing
+   6343   3 evolution-alarm
+   6349   2 gsd-smartcard
+   6350   1 gsd-disk-utilit
+   6351   3 gsd-sound
+   6355   2 gsd-wacom
+   6357   3 gsd-xsettings
+   6391   0 parcellite
+   6398   0 indicator-messa
+   6456   0 ibus-memconf
+   6457   2 gvfsd-metadata
+   6458   3 ibus-extension-
+   6475   2 gsd-printer
+   6478   0 gvfs-udisks2-vo
+   6504   1 ibus-x11
+   6520   0 goa-identity-se
+   6522   2 ibus-portal
+   6547   3 xdg-desktop-por
+   6586   0 evolution-calen
+   6587   2 gvfs-afc-volume
+   6594   2 gvfs-goa-volume
+   6604   1 gvfs-gphoto2-vo
+   6611   1 gvfs-mtp-volume
+   6618   2 evolution-addre
+   6683   0 gjs
+   6703   0 tracker-miner-f
+   6704   2 xdg-desktop-por
+   6708   2 ibus-engine-sim
+   6754   1 xdg-desktop-por
+   6797   1 gvfsd-trash
+   6922   0 user-session-he
+   6989   2 snapd-desktop-i
+  38815   2 gnome-terminal-
+  38827   1 bash
+  42772   0 kworker/R-tls-strp
+ 112080   4 kworker/4:1H-kblockd
+ 367248   0 fwupd
+ 385301   3 systemd-journal
+ 385463   3 systemd-timesyn
+ 385633   0 systemd-udevd
+ 385634   3 psimon
+ 385792   2 systemd-oomd
+ 386116   2 systemd-resolve
+ 399061   0 smbd
+ 399064   0 smbd-notifyd
+ 399065   0 smbd-cleanupd
+ 399223   0 nmbd
+ 401007   1 udisksd
+ 404281   3 accounts-daemon
+ 404295   2 snapd
+ 407448   0 rsyslogd
+1193802   1 sshd
+1999120   3 psimon
+2334874   7 kworker/7:1
+2370674   2 sshd
+2370719   1 sshd
+2370720   0 bash
+2370721   2 sudo
+2542305   3 sshd
+2542358   1 sshd
+2542359   2 bash
+2542360   0 base64
+2542361   3 tar
+2542362   3 tar
+2542363   1 gzip
+2556630   6 kworker/6:1H-kblockd
+2636039   2 sshd
+2636084   2 sshd
+2636085   2 bash
+2636087   1 sudo
+2807012   0 cupsd
+2807043   0 cups-browsed
+3344439   0 kworker/u32:2-events_power_efficient
+3351882   2 kworker/u32:1-writeback
+3404695   0 kworker/0:0-events
+3411112   1 kworker/1:0-cgroup_free
+3417043   2 kworker/2:2-events
+3418506   3 kworker/3:0-cgroup_free
+3422870   3 kworker/u32:3-ext4-rsv-conversion
+3426796   2 kworker/u32:4-events_unbound
+3427618   1 kworker/1:1-events
+3427666   2 kworker/2:1-events
+3428254   0 kworker/0:2-kacpi_notify
+3428655   3 kworker/3:1-events
+3429149   1 bash
+3432273   1 kworker/1:2-cgroup_free
+3433076   2 kworker/2:0-events
+3433220   0 kworker/0:1-events
+3434132   3 kworker/3:2-events
+3436286   3 java
+3437028   0 kworker/u32:0
+3437076   3 ps

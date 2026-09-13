@@ -1,0 +1,33 @@
+/home/d3v/wsl-stride16-v3-build-20260909-stride16-clang18-auto/working_set_ladder  :
+section               size      addr
+.interp                 28   4195096
+.note.gnu.property      32   4195128
+.note.gnu.build-id      36   4195160
+.note.ABI-tag           32   4195196
+.gnu.hash               76   4195232
+.dynsym               1608   4195312
+.dynstr               2075   4196920
+.gnu.version           134   4198996
+.gnu.version_r         256   4199136
+.rela.dyn              144   4199392
+.rela.plt             1320   4199536
+.init                   27   4202496
+.plt                   896   4202528
+.text                38608   4203424
+.fini                   13   4242032
+.rodata               4272   4243456
+.eh_frame_hdr          324   4247728
+.eh_frame             2368   4248056
+.gcc_except_table     1416   4250424
+.init_array             16   4259224
+.fini_array              8   4259240
+.data.rel.ro            40   4259248
+.dynamic               512   4259288
+.got                    16   4259800
+.got.plt               464   4259816
+.data                   16   4260280
+.bss                   608   4260352
+.comment                84         0
+Total                55429
+
+

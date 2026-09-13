@@ -1,0 +1,4 @@
+mode=mlp8_cycle
+pair=MLP_LANES 1 versus 8
+repetitions=15
+seed=20260910

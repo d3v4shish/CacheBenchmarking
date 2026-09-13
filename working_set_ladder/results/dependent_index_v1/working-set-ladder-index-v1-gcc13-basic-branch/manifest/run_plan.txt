@@ -1,0 +1,5 @@
+only_mode=dependent_index_cycle
+only_implementation=scalar
+only_profiles=basic branch
+repetitions=15
+minimum_duration_ms=250

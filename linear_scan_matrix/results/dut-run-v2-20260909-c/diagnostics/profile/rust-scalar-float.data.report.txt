@@ -1,0 +1,252 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 17K of event 'cycles:u'
+# Event count (approx.): 1733400000
+#
+# Children      Self  Command  Shared Object         Symbol                                                                                                                              
+# ........  ........  .......  ....................  ....................................................................................................................................
+#
+    99.98%     0.00%  rust     rust                  [.] _start
+            |
+            ---_start
+               __libc_start_main_impl (inlined)
+               __libc_start_call_main
+               std::rt::lang_start
+               lang_start_internal (inlined)
+               |          
+                --99.98%--catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                          do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          {closure#2} (inlined)
+                          catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          std::rt::lang_start::{{closure}}
+                          std::sys_common::backtrace::__rust_begin_short_backtrace
+                          main::main
+
+    99.98%     0.00%  rust     libc.so.6             [.] __libc_start_main_impl (inlined)
+            |
+            ---__libc_start_main_impl (inlined)
+               __libc_start_call_main
+               std::rt::lang_start
+               lang_start_internal (inlined)
+               |          
+                --99.98%--catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                          do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          {closure#2} (inlined)
+                          catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          std::rt::lang_start::{{closure}}
+                          std::sys_common::backtrace::__rust_begin_short_backtrace
+                          main::main
+
+    99.98%     0.00%  rust     libc.so.6             [.] __libc_start_call_main
+            |
+            ---__libc_start_call_main
+               std::rt::lang_start
+               lang_start_internal (inlined)
+               |          
+                --99.98%--catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                          do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          {closure#2} (inlined)
+                          catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          std::rt::lang_start::{{closure}}
+                          std::sys_common::backtrace::__rust_begin_short_backtrace
+                          main::main
+
+    99.98%     0.00%  rust     rust                  [.] std::rt::lang_start
+            |
+            ---std::rt::lang_start
+               |          
+                --99.98%--lang_start_internal (inlined)
+                          catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                          do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          {closure#2} (inlined)
+                          catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          std::rt::lang_start::{{closure}}
+                          std::sys_common::backtrace::__rust_begin_short_backtrace
+                          main::main
+
+    99.98%     0.00%  rust     rust                  [.] lang_start_internal (inlined)
+            |
+            ---lang_start_internal (inlined)
+               |          
+                --99.98%--catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                          do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                          {closure#2} (inlined)
+                          catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                          call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                          std::rt::lang_start::{{closure}}
+                          std::sys_common::backtrace::__rust_begin_short_backtrace
+                          main::main
+
+    99.98%    99.71%  rust     rust                  [.] main::main
+            |          
+             --99.71%--_start
+                       __libc_start_main_impl (inlined)
+                       __libc_start_call_main
+                       std::rt::lang_start
+                       lang_start_internal (inlined)
+                       catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                       try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+                       do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+                       {closure#2} (inlined)
+                       catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                       try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                       do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+                       call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+                       std::rt::lang_start::{{closure}}
+                       std::sys_common::backtrace::__rust_begin_short_backtrace
+                       main::main
+
+    99.98%     0.00%  rust     rust                  [.] catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+            |
+            ---catch_unwind<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+               try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+               do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+               {closure#2} (inlined)
+               catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+            |
+            ---try<isize, std::rt::lang_start_internal::{closure_env#2}> (inlined)
+               do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+               {closure#2} (inlined)
+               catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+            |
+            ---do_call<std::rt::lang_start_internal::{closure_env#2}, isize> (inlined)
+               {closure#2} (inlined)
+               catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] {closure#2} (inlined)
+            |
+            ---{closure#2} (inlined)
+               catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+            |
+            ---catch_unwind<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+            |
+            ---try<i32, &(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+            |
+            ---do_call<&(dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe), i32> (inlined)
+               call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+            |
+            ---call_once<(), (dyn core::ops::function::Fn<(), Output=i32> + core::marker::Sync + core::panic::unwind_safe::RefUnwindSafe)> (inlined)
+               std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] std::rt::lang_start::{{closure}}
+            |
+            ---std::rt::lang_start::{{closure}}
+               std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+    99.98%     0.00%  rust     rust                  [.] std::sys_common::backtrace::__rust_begin_short_backtrace
+            |
+            ---std::sys_common::backtrace::__rust_begin_short_backtrace
+               main::main
+
+     0.27%     0.27%  rust     [unknown]             [k] 0xffffffff9f200b90
+     0.02%     0.00%  rust     ld-linux-x86-64.so.2  [.] _start
+     0.02%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_start
+     0.02%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_start_final (inlined)
+     0.02%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_sysdep_start
+     0.02%     0.00%  rust     ld-linux-x86-64.so.2  [.] dl_main
+     0.01%     0.01%  rust     ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_relocate_object
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] elf_dynamic_do_Rela (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] elf_machine_rela (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] resolve_map (inlined)
+     0.01%     0.01%  rust     [unknown]             [k] 0xffffffff9f200ef0
+     0.01%     0.01%  rust     libc.so.6             [.] __vfscanf_internal
+     0.01%     0.01%  rust     ld-linux-x86-64.so.2  [.] do_lookup_x
+     0.01%     0.00%  rust     rust                  [.] catch_unwind<std::rt::lang_start_internal::{closure_env#1}, ()> (inlined)
+     0.01%     0.00%  rust     rust                  [.] try<(), std::rt::lang_start_internal::{closure_env#1}> (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_map_object_deps
+     0.01%     0.00%  rust     rust                  [.] do_call<std::rt::lang_start_internal::{closure_env#1}, ()> (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_catch_exception
+     0.01%     0.00%  rust     rust                  [.] {closure#1} (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] openaux
+     0.01%     0.00%  rust     rust                  [.] init (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_map_object
+     0.01%     0.00%  rust     rust                  [.] init (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_map_object_from_fd
+     0.01%     0.00%  rust     rust                  [.] get_stack_start_aligned (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_map_segments (inlined)
+     0.01%     0.00%  rust     rust                  [.] get_stack_start (inlined)
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] __mmap64 (inlined)
+     0.01%     0.00%  rust     libc.so.6             [.] __pthread_getattr_np (inlined)
+     0.01%     0.00%  rust     libc.so.6             [.] __isoc23_sscanf
+     0.01%     0.00%  rust     ld-linux-x86-64.so.2  [.] _dl_new_hash (inlined)
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

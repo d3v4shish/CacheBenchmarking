@@ -1,0 +1,6 @@
+build_id,mode,implementation,state,perf_profile,footprint_bytes,reason,rows
+stride16-gcc13-scalar,arena_pointer_chase,scalar,cache_evicted,basic,536870912,timed_page_fault,1
+stride16-gcc13-scalar,arena_pointer_chase,scalar,warm,basic,33554432,timed_page_fault,1
+stride16-gcc13-scalar,arena_pointer_chase,scalar,warm,branch,7340032,timed_page_fault,1
+stride16-gcc13-scalar,arena_pointer_chase,scalar,warm,branch,8388608,timed_page_fault,1
+stride16-gcc13-scalar,arena_pointer_chase,scalar,warm,branch,134217728,timed_page_fault,2

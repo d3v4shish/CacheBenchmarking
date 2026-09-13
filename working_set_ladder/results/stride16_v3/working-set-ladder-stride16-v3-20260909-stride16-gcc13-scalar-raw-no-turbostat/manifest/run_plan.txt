@@ -1,0 +1,5 @@
+only_mode=stride16_scan
+only_implementation=scalar
+only_profiles=l1_miss l2_miss l3_miss
+repetitions=15
+minimum_duration_ms=250

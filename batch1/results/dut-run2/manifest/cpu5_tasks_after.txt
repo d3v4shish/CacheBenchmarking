@@ -1,0 +1,6 @@
+  5      60 cpuhp/5
+  5      61 idle_inject/5
+  5      62 migration/5
+  5      63 ksoftirqd/5
+  5      64 kworker/5:0-events
+  5     119 kworker/5:1
